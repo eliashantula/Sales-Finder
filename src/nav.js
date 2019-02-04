@@ -3,7 +3,8 @@ import { Nav, NavItem} from "reactstrap";
 import {
   BrowserRouter as Router,
   Route, NavLink, Switch
-} from 'react-router-dom'
+} from 'react-router-dom';
+import CartContainer from './cartcontainer'
 const sections = ["vegetables", "dairy", "meats", "drinks"];
 
 const Navs = ({section}) => {
@@ -26,12 +27,12 @@ class FoodNav extends React.Component {
       
         <Nav className="menu">
           <NavLink className="navigs"
-      exact to="/">Home  </NavLink>
+      exact to="/">Home</NavLink>
         {sections.map(section=>{
           return (
         <Navs section = {section}/>
         )})}
-        
+        <CartContainer/>
 
         </Nav> 
         

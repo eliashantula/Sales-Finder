@@ -20,7 +20,7 @@ const home = (props) => {
 return (
 
     <div>
-      <Jumbotron>
+      <Jumbotron className="jumbo">
         <h1 className="display-3">Hello, Sales!</h1>
         <p className="lead">Choose your items and check out some money saving recipes</p>
         <hr className="my-2" />
@@ -51,11 +51,12 @@ class App extends Component {
       <Router>
 
       <div className="App">
+      <div className="wrapper">
          <div className="navigation">
 
         <FoodNav />
         <div className="test">
-        <CartContainer />
+        
         </div>
         </div>
 
@@ -67,7 +68,7 @@ class App extends Component {
       <Route exact path ="/dairy" component ={DairyContainer}/>
       <Route exact path = '/drinks' component = {DrinkContainer}/>
 </Switch>
-     
+     </div>
       </div>
       </Router>
     );

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import cart from "./shopping.png";
+import carts from "./cart.jpg"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const ItemAmount = ({amount}) => {
@@ -7,7 +8,7 @@ const ItemAmount = ({amount}) => {
 return (
 
 <div className="number">
-<p class="h6" style={{color: "white"}}>{amount}</p>
+<p class="h7" style={{color: "white", fontSize: "12px"}}>{amount} items in cart</p>
 </div>
 
 	)
@@ -37,11 +38,12 @@ class Cart extends Component {
 		const amount = this.props.list
 		console.log(amount)
 		return (
-			<div style={{ backgroundColor: "black" }}>
-			<ItemAmount amount = {amount.length}/>
-				<Button style={{backgroundColor: "black", padding: "0px", margin: "0px", border: "0px"}} onClick={this.toggle}>
-					<img src={cart} />{" "}
+			<div style={{ }} className="cart">
+			
+				<Button style={{ border: "0px"}} onClick={this.toggle}>
+					<img src={cart} className="cartImage" />{" "}
 				</Button>
+				<ItemAmount amount = {amount.length}/>
 				<Modal
 					isOpen={this.state.modal}
 					toggle={this.toggle}
