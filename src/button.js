@@ -68,7 +68,6 @@ const mapDispatchToProps = dispatch => {
 			e.preventDefault();
 			const form = e.target;
 			const data = serialize(form, { hash: true });
-			console.log(data);
 			dispatch(addShopping(data))
 			form.reset();
 		}

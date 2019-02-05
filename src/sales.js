@@ -38,7 +38,7 @@ const data = [
   {
     name: "Dairy",
     products: [
-      {type: "Large Eggs", price: 2.75, unit: "dozen", company: "Eggland"},
+      {type: "12 Large Eggs", price: 2.75, company: "Eggland"},
       {type: "Sour Cream 16oz", price: 1.99, company: "Breakstones"},
       {type: "Butter", price: 3.99, company: "Kerrygold"},
        {type: "Kefir 32oz", price: 2.99,  company: "Wallaby"},

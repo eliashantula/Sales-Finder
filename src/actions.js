@@ -32,7 +32,7 @@ export function getMeats(){
      
 		if (item.name === 'Meats'){
 			console.log("yes")
-			 food = item.items 
+			 food = item.products 
 
 		}
 	})
@@ -45,7 +45,7 @@ export function getMeats(){
 }
 
 export function getDairy(){
-	console.log(data)
+
 	data.default.forEach(item=>{
 		if (item.name === 'Dairy'){
 			 food = item.products 
@@ -63,7 +63,7 @@ export function getDrinks(){
 
 	data.default.forEach(item=>{
 		if (item.name === 'Drinks'){
-			 food = item.items 
+			 food = item.products 
 		}
 	})
 	return {

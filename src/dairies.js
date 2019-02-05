@@ -5,10 +5,10 @@ import Button from './button'
 let DairyRow = ({ item }) => {
 	return (
 		<Col className = "itemInfo" style={{ color: "white" }}>
-		    {item.company}{' '}
-			{item.type} <br />
-			{item.price}
-			{' '}{item.unit}
+		    <h3 className="description">{item.company}{' '}
+			{item.type}{' '}
+			<span style={{fontSize: "15px"}}>{'$'}{item.price}</span>
+			{item.unit}</h3>
 		<Button className="button" item = {item}/>
 		</Col>
 	);

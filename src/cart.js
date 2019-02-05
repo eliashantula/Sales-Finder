@@ -7,9 +7,9 @@ const ItemAmount = ({amount}) => {
 
 return (
 
-<div className="number">
-<p class="h7" style={{color: "white", fontSize: "12px"}}>{amount} items in cart</p>
-</div>
+
+<p className="h7" style={{color: "white", fontSize: "12px"}}>{amount} items in cart</p>
+
 
 	)
 }
@@ -38,7 +38,7 @@ class Cart extends Component {
 		const amount = this.props.list
 		console.log(amount)
 		return (
-			<div style={{ }} className="cart">
+			<div className="cart">
 			
 				<Button style={{ border: "0px"}} onClick={this.toggle}>
 					<img src={cart} className="cartImage" />{" "}
