@@ -4,10 +4,12 @@ import picture from "./dairy.jpg";
 import Button from './button'
 let DairyRow = ({ item }) => {
 	return (
-		<Col sm="4" style={{ color: "white" }}>
-			{item.item} <br />
+		<Col className = "itemInfo" style={{ color: "white" }}>
+		    {item.company}{' '}
+			{item.type} <br />
 			{item.price}
-		<Button item = {item}/>
+			{' '}{item.unit}
+		<Button className="button" item = {item}/>
 		</Col>
 	);
 };
@@ -21,7 +23,7 @@ export default class DairyItems extends Component {
 
 		return (
 			<div className="dairy" style={{ backgroundImage: `url(${picture})`, width: "100%", height: "800px"}}>
-				<Container>
+				<Container className="product">
 					<Row>
 						{dairy.map(item => {
 							return <DairyRow item={item} />;

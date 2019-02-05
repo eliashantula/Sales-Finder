@@ -5,13 +5,13 @@ import {
   Route, NavLink, Switch
 } from 'react-router-dom';
 import CartContainer from './cartcontainer'
-const sections = ["vegetables", "dairy", "meats", "drinks"];
+const sections = ["Vegetables", "Dairy", "Meats", "Drinks"];
 
 const Navs = ({section}) => {
 
 return (
 
-<NavLink className="navigs" exact to={`/${section}`}>{` ${section} `}</NavLink>
+<NavLink className="navigs" exact to={`/${section}`}>{`${section}`}</NavLink>
 
 
   )

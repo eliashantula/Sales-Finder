@@ -18,29 +18,32 @@ class ShopButton extends Component {
 	render() {
 		
 		return (
-			<Form onSubmit={this.props.checkSubmits}>
-				<FormGroup
-					style={{
-						display: "flex",
-						justifyContent: "center",
-						width: "95%"
-					}}
+			<Form onSubmit={this.props.checkSubmits} className="testing">
+				<FormGroup className="shoppingButton"
+				
 				>
-					<Input
+					<Input className="quantity"
 						type="number"
 						name="amount"
-						placeholder="0"
-						style={{ width: "15%" }}
-
+						placeholder={0}
+						
 					/>
+					<Input 
+					type="hidden"
+					name="company"
+					defaultValue={this.props.item.company} />
+					<Input 
+					type="hidden"
+					name="price"
+					defaultValue={this.props.item.price} />
 					<Input
 					type="hidden"
 					name="item"
-					defaultValue={this.props.item.item} />
+					defaultValue={this.props.item.type} />
 					<Button
 						type="submit"
 						color="primary"
-						id={this.props.item.item}
+						/*id={this.props.item}*/
 						size="sm"
 					>
 						Add To List
@@ -64,7 +67,6 @@ const mapDispatchToProps = dispatch => {
 		checkSubmits: e => {
 			e.preventDefault();
 			const form = e.target;
-			
 			const data = serialize(form, { hash: true });
 			console.log(data);
 			dispatch(addShopping(data))

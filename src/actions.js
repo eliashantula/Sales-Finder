@@ -13,7 +13,7 @@ export function getVegetables(){
 	data.default.forEach(item=>{
 
 		if (item.name === 'Vegetables'){
-			 food = item.item 
+			 food = item.products 
 			
 		}
 	})
@@ -48,7 +48,7 @@ export function getDairy(){
 	console.log(data)
 	data.default.forEach(item=>{
 		if (item.name === 'Dairy'){
-			 food = item.items 
+			 food = item.products 
 		}
 	})
 	return {

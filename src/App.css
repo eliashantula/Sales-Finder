@@ -1,12 +1,10 @@
 .App {
   display: grid;
-  grid-gap: 10em;
+
+  grid-gap: 1em;
 }
 
-
-
 .App-header {
- 
 }
 
 .App-title {
@@ -17,48 +15,102 @@
   font-size: large;
 }
 
-
-
 .menu {
-display: flex;
-flex-flow: row wrap;
-flex: 0 0 100%;
-background-color: black;
-height: 95px;
-align-items: center;
-
-
-
+  display: flex;
+  flex-flow: row wrap;
+  flex: 0 0 100%;
+  background-color: black;
+  height: 95px;
+  justify-content: space-between;
 }
 
 .menu {
- 
   padding-top: 0px;
 }
 
 .test {
-  
 }
 .jumbo {
   text-align: center;
-
 }
 
 .navigs {
-margin-left: 3%;
-flex: 0 0 9%;
-
+  margin-left: 3%;
+  flex: 0 0 10%;
+  padding: 0%;
 }
 
 .cart {
   flex: 0 0 28%;
   margin-left: auto;
-  
-  margin-bottom: 0px;
-  padding-bottom: 0px;
 
+  margin-bottom: 0px;
 }
 
+.shoppingButton {
+}
+
+.col-1 {
+}
+
+.col-2 {
+}
+
+.quantity {
+  flex: 0 0 23%;
+  text-align: center;
+  font-size: 10px;
+}
+
+.product {
+  display: flex;
+  flex-flow: row wrap;
+  flex: 0 0 100%;
+}
+
+.itemInfo {
+  flex: 0 0 100%;
+  margin: 0%;
+  
+}
+
+.wrapper {
+  display: grid;
+  min-height: 100%;
+  grid-template-areas: navigation navigation navigation;
+}
+
+@media only screen and (max-width: 767px) {
 
 
-@media 
+  .product {
+    flex-flow: nowrap;
+  }
+
+
+  .itemInfo {
+    flex: 0 0 50%;
+    margin: 0%;
+    background-color: black;
+    font-size: 27px;
+
+  }
+
+  .quantity {
+ width: 34%;
+
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .itemInfo {
+    flex: 0 0 33%;
+    margin: 0%;
+    background-color: black;
+    font-size: 20px;
+  }
+  .quantity {
+    width: 23%;
+
+  }
+}

@@ -33,9 +33,9 @@ export default function groceryItem(state = initialState, Action) {
 				vegetables: Action.food
 			};
 		case "ADD_SHOPPING":
-		console.log(state.list)
-		    let items = parseInt(Action.data.amount)
-		    console.log(items)
+		
+		    let items = parseInt(Action.data)
+		    console.log(Action.data)
 			for (let i = 0; i < state.list.length;i++) {
 			if (state.list[i].item === Action.data.item){
 				state.list[i].amount += items
