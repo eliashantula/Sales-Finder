@@ -15,7 +15,17 @@ return (
 }
 
 
+const ListItem = ({list}) => {
 
+return (
+
+<li>{list.company} {list.product} : {list.amount}</li>
+
+
+	)
+
+
+}
 
 
 
@@ -33,24 +43,33 @@ class Cart extends Component {
 			modal: !this.state.modal
 		});
 	}
-
+    
 	render() {
-		const amount = this.props.list
-		console.log(amount)
+		const {amount,list,total} = this.props
+	
+		
+		let shoppingList=Object.keys(list).map(key=>{
+			return <ListItem list = {list[key]} />
+		})
 		return (
 			<div className="cart">
 			
 				<Button style={{ border: "0px"}} onClick={this.toggle}>
 					<img src={cart} className="cartImage" />{" "}
 				</Button>
-				<ItemAmount amount = {amount.length}/>
+				<ItemAmount amount = {amount}/>
 				<Modal
 					isOpen={this.state.modal}
 					toggle={this.toggle}
 					className={this.props.className}
 				>
-				<ModalHeader toggle={this.toggle}>Modal title</ModalHeader>
-				<ModalBody>Your Items</ModalBody>
+				<ModalHeader toggle={this.toggle}>Shopping List</ModalHeader>
+				<ModalBody>Your Items<br/>
+						<ul className="shoppingList">
+						{shoppingList}
+						</ul>
+				Total: ${total}
+				</ModalBody>
 				<ModalFooter>
 					<Button color="primary" onClick={this.toggle}>
 						Print

@@ -19,9 +19,9 @@ this.props.seeCart()
 
 
 render(){
-const {list} = this.props
+const {list, amount, total} = this.props
 return (
-<Cart list ={list}/> 
+<Cart list ={list} amount={amount} total={total}/> 
 )
 
 
@@ -45,7 +45,9 @@ return {
 
 const mapStateToProps = (state)=>{
 return {
-	list: state.list
+	list: state.list,
+	amount: state.amount,
+	total: state.total
 }
 }
 
