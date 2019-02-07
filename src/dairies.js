@@ -22,7 +22,7 @@ export default class DairyItems extends Component {
 		const { dairy } = this.props;
 
 		return (
-			<div className="dairy" style={{ backgroundImage: `url(${picture})`, width: "100%", height: "800px"}}>
+			<div className="dairy" style={{ width: "100%", height: "1300px", backgroundImage: `url(${picture})`, height: "1300px", padding: "0%"}}>
 				<Container className="product">
 					<Row>
 						{dairy.map(item => {

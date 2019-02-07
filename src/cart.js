@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import cart from "./shopping.png";
-import carts from "./cart.jpg"
+import carts from "./cart1.png"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const ItemAmount = ({amount}) => {
@@ -8,7 +8,7 @@ const ItemAmount = ({amount}) => {
 return (
 
 
-<p className="h7" style={{color: "white", fontSize: "12px"}}>{amount} items in cart</p>
+<p className="h7" style={{color: "white", fontSize: "11px", margin: "0%"}}>{amount} items in cart</p>
 
 
 	)
@@ -54,10 +54,11 @@ class Cart extends Component {
 		return (
 			<div className="cart">
 			
-				<Button style={{ border: "0px"}} onClick={this.toggle}>
-					<img src={cart} className="cartImage" />{" "}
+				<Button style={{ border: "0px", padding: "0px" ,background: "transparent", width: "100%"}} onClick={this.toggle}>
+					<img src={carts} className="cartImage" style={{maxWidth: "30%", maxHeight: "80px", marginLeft: "auto"}} />
+					<ItemAmount amount = {amount}/>
 				</Button>
-				<ItemAmount amount = {amount}/>
+				
 				<Modal
 					isOpen={this.state.modal}
 					toggle={this.toggle}

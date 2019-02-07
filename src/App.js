@@ -8,6 +8,7 @@ import MeatContainer from './meatcontainer'
 import VegetableContainer from './vegetablecontainer'
 import DairyContainer from './dairycontainer'
 import DrinkContainer from './drinkcontainer'
+import picture from "./dairy.jpg";
 import {
   BrowserRouter as Router,
   Route, NavLink, Switch
@@ -38,7 +39,7 @@ return (
   )
 }
 
-
+/*<div className="content" style={{ backgroundImage: `url(${picture})`, height: "1300px", padding: "0%"}}>*/
 
 
 
@@ -52,23 +53,22 @@ class App extends Component {
 
       <div className="App">
       <div className="wrapper">
-         <div className="navigation">
+         <div className="navigation" style={{position: "sticky",
+  top: "0", zIndex: "9"}}>
 
         <FoodNav />
-        <div className="test">
         
-        </div>
         </div>
 
         <Switch>
-      <div className="content">
+      
       <Route exact path="/" component={home}/>
 
      <Route exact path = "/meats" component={MeatContainer}/>
       <Route exact path = "/vegetables" component={VegetableContainer}/>
       <Route exact path ="/dairy" component ={DairyContainer}/>
       <Route exact path = '/drinks' component = {DrinkContainer}/>
-      </div>
+      
 </Switch>
      </div>
       </div>

@@ -32,8 +32,8 @@ class FoodNav extends React.Component {
           return (
         <Navs section = {section}/>
         )})}
+        
         <CartContainer/>
-
         </Nav> 
         
      
