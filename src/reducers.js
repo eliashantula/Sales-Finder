@@ -126,8 +126,26 @@ export default function groceryItem(state = initialState, Action) {
 			
 	
 		case "UDATE_CART":
-		/*let product = Action.data.product
-		let price = Action.data*/
+		let updatedProduct = Action.data.product
+		let updatedAmount = parseInt(Action.data.amount) 
+		if (updatedAmount > state.list[product].amount){
+			let additionalAmount = updatedAmount - state.list[product].amount 
+			let updatedtotal = state.total + (updated.amount *state.list[product].price)
+			updatedTotal = (updatedTotal * 1000).toFixed()
+			updatedTotal = parseInt(updatedTotal/10)
+			updatedTotal = parseFloat(removeAmount/100)
+
+
+
+
+		} else {
+			
+	      
+			
+
+
+
+		}
 		
 		case "SEE_CART":
 		return{
