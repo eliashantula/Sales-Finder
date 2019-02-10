@@ -4,7 +4,7 @@ import picture from "./dairy.jpg";
 import Button from './button'
 let DairyRow = ({ item }) => {
 	return (
-		<Col className = "itemInfo" style={{ color: "white" }}>
+		<Col className = "itemInfo" style={{ color: "white", marginTop: "20px" }}>
 		    <h3 className="description">{item.company}{' '}
 			{item.type}{' '}
 			<span style={{fontSize: "15px"}}>{'$'}{item.price}</span>

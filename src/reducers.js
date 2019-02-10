@@ -8,7 +8,8 @@ const initialState = {
 	recipes: [],
 	list: {},
 	total: 0,
-	amount: 0};
+	amount: 0
+	};
 
 export default function groceryItem(state = initialState, Action) {
 	
@@ -39,7 +40,14 @@ export default function groceryItem(state = initialState, Action) {
 		    
 		    let product = Action.data.item
 		    let company = Action.data.company
+		    let id = Action.data.id                                                                                                  
 		    let price = parseFloat(Action.data.price)
+		    let sum = state.total + (price*amount)
+		    sum = (sum * 1000).toFixed();
+		    sum = parseInt(sum/10)
+		    sum = parseFloat(sum/100)
+		    
+            
 		    
 		   if (amount) {
 
@@ -47,7 +55,7 @@ export default function groceryItem(state = initialState, Action) {
 			if (state.list[product]) {
 				return {
 					...state,
-					total: state.total + (amount*price),
+					total: sum,
 					amount: state.amount + amount,
 					list : {
 						...state.list,
@@ -62,15 +70,15 @@ export default function groceryItem(state = initialState, Action) {
 					
 			}
 			} else {
-				console.log(state.total)
+				
 				return {
 
 				...state,
-				total: state.total + (amount*price),
+				total: sum,
 				amount: state.amount + amount,
 				list : {
 					...state.list,
-					[product] : {product: product, amount: amount, company: company}
+					[product] : {product: product, amount: amount, company: company, price: price }
 
 				}
 
@@ -92,15 +100,35 @@ export default function groceryItem(state = initialState, Action) {
 			
 		
 		case "REMOVE_SHOPPING":
-		for (let i =0; i < state.list.length; i++){
-		if (state.list[i].item === Action.data.item){
-			return state.list.filter(item => item.item !== Action.data.item)
+		let quantity = parseInt(Action.data.amount)
+		let item = Action.data.product
+		let prices = parseFloat(Action.data.price)
+		let removeAmount = state.total - (prices * quantity)
+		removeAmount = (removeAmount * 1000).toFixed()
+		removeAmount = parseInt(removeAmount/10)
+		removeAmount = parseFloat(removeAmount/100)
+		console.log(Action.data) 
+		let newState = Object.keys(state.list).reduce((result,prod)=>{
+			if(prod !== item){
+				result[prod] = state.list[prod]
+				
+			} 
+			return result;
+			},{})
+		return {...state, list: newState,
+			total: removeAmount,
+			amount: state.amount - quantity
 		}
-	}
-		return {
-			...state,
+		
+
+		
+		
 			
-		};
+	
+		case "UDATE_CART":
+		/*let product = Action.data.product
+		let price = Action.data*/
+		
 		case "SEE_CART":
 		return{
 			...state,

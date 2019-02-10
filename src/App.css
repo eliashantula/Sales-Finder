@@ -56,9 +56,9 @@ html {
 
  
   flex: 0 0 18%;
-  margin-left: 3%;
- 
+  margin-left: auto;
   color: white;
+ 
 
 }
 
@@ -131,11 +131,29 @@ html {
   }
 
   .quantity {
- width: 18%;
+ max-width: 23%;
+
+
 
   }
+
+
+
+.quantity::-webkit-inner-spin-button, 
+.quantity::-webkit-outer-spin-button {  
+   width: 20px;
+   opacity: 1;
+   margin: 0px;
+
+}
+
+.delete {
+  .underline-on-hover:hover {
+    text-decoration: underline;
+}
+}
 .navigation {
-  justify-content: flex-start;
+  justify-content: center;
 
 }
   .navigs {
@@ -145,6 +163,7 @@ html {
   font-size: 12px;
   color: white;
   margin-left: auto;
+  martin-right: auto;
 
 }
 .cart {
@@ -152,6 +171,19 @@ html {
 }
 }
 
+.modals {
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 0 0 95%;
+  justify-content: flex-start;
+
+}
+
+.totals {
+  flex: 0 0 40;
+  font-size: 15px;
+  margin-right: auto;
+}
 @media only screen and (min-width: 768px) {
   .itemInfo {
     flex: 0 0 26%;
@@ -165,5 +197,11 @@ html {
     
     width: 23%;
 
+  }
+  .navigs {
+      flex: 0 0 12%;
+    margin-left: auto;
+    
+    padding: 1%;
   }
 }
