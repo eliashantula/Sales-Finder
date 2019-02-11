@@ -72,7 +72,47 @@ html {
 
 .shoppingButton {
 }
+.shoppingInfo {
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 0 0 90%;
+  justify-content: center;
+  margin-left: 0px;
+  margin-right: 0px;
+}
 
+.shoppingList {
+  flex: 0 0 45%;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.shoppingButton {
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 0 0 100%;
+}
+.shoppingButtons {
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 0 0 100%;
+  justify-content: center;
+}
+.delete {
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 0 0 20%;
+  justify-content: flex-start;
+  margin-left: 0px;
+}
+
+.quantityUpdate {
+  flex: 0 0 30%;
+  margin-left: auto;
+}
+.deleteButton{
+  flex: 0 0 20%;
+}
 .col-1 {
 }
 
@@ -163,7 +203,7 @@ html {
   font-size: 12px;
   color: white;
   margin-left: auto;
-  martin-right: auto;
+  margin-right: auto;
 
 }
 .cart {

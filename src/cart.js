@@ -18,10 +18,10 @@ return (
 const ListItem = ({list, onDelete}) => {
 	console.log(list)
 return (
-
-<li>{list.company} {list.product} : {list.amount}
+<div className="shoppingInfo">
+<li className="shoppingList">{list.company}{' '}{list.product} : {list.amount}</li>
 <Form onSubmit={onDelete} className="delete">
-				<FormGroup className="shoppingButton">
+				<FormGroup className="shoppingButtons">
 					<Input 
 					type="hidden"
 					name="company"
@@ -38,13 +38,30 @@ return (
 					type="hidden"
 					name="product"
 					defaultValue={list.product} />
-					<Button type="submit" style={{fontSize: "8px", backGroundColor: "white", border: "0px"}}>
+					<Input type="select" name="select" className="quantityUpdate" defaultValue= {list.amount} id="quantitySelect" style={{fontSize: "10px", border: "0px"}}>
+            <option>{list.amount}</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+             <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+            <option>10</option>
+             <option>11</option>
+            <option>12</option>
+            <option>13</option>
+            <option>14</option>
+            <option>15</option>
+          </Input>
+					<Button type="submit" className="deleteButton" style={{fontSize: "8px", backGroundColor: "white", border: "0px"}}>
 						Delete
 						</Button>
 						
 				</FormGroup>
 			</Form>
- </li>
+ </div>
 
 	)
 
@@ -89,8 +106,8 @@ class Cart extends Component {
 					className={this.props.className}
 				>
 				<ModalHeader toggle={this.toggle}>Shopping List</ModalHeader>
-				<ModalBody>
-						<ul className="shoppingList" style={{listStyleType: "none"}}>
+				<ModalBody >
+						<ul style={{listStyleType: "none"}}>
 
 						{shoppingList}
 						</ul>

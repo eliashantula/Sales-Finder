@@ -5,6 +5,7 @@ const GET_DRINKS = 'GET_DRINKS'
 const ADD_SHOPPING = 'ADD_SHOPPING'
 const REMOVE_SHOPPING = 'REMOVE_SHOPPING'
 const SEE_CART='SEE_CART'
+const UPDATE_CART='UPDATE_CART'
 
 const data = require('./sales')
 
@@ -95,5 +96,12 @@ export function seeCart(){
 	return {
 		type: SEE_CART,
 
+	}
+}
+
+export function updateCart(data){
+	return {
+		type: UPDATE_CART,
+		data
 	}
 }
