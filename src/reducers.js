@@ -127,18 +127,54 @@ export default function groceryItem(state = initialState, Action) {
 	
 		case "UDATE_CART":
 		let updatedProduct = Action.data.product
-		let updatedAmount = parseInt(Action.data.amount) 
-		if (updatedAmount > state.list[product].amount){
-			let additionalAmount = updatedAmount - state.list[product].amount 
-			let updatedtotal = state.total + (updated.amount *state.list[product].price)
+		let updatedAmount = parseInt(Action.data.amount)
+		let additionalAmount, updatedTotal 
+		if (updatedAmount > state.list[updatedProduct].amount){
+			additionalAmount = updatedAmount - state.list[updatedProduct].amount 
+			updatedTotal = state.total + (additionalAmount *state.list[updatedProduct].price)
 			updatedTotal = (updatedTotal * 1000).toFixed()
 			updatedTotal = parseInt(updatedTotal/10)
-			updatedTotal = parseFloat(removeAmount/100)
+			updatedTotal = parseFloat(updatedTotal/100)
+			return {
+				...state,
+				total: updatedTotal,
+				amount: state.amount + additionalAmount,
+				list :{
+					...state.list,
+					[updatedProduct]: {
+						...state.list[updatedProduct],
+						amount: updatedAmount
+
+
+					}
+				}
 
 
 
 
-		} else {
+			}
+
+
+
+
+		} else if (updatedAmount < state.list[updatedProduct].amount){
+				additionalAmount = state.list[updatedProduct].amount - updatedAmount
+				updatedTotal = state.total - (additionalAmount * state.list[updatedProduct].price)
+				updatedTotal = (updatedTotal * 1000).toFixed()
+				updatedTotal = parseInt(updatedTotal/10)
+				updatedTotal = parseFloat(updatedTotal/100)
+				return {
+					...state,
+					total: updatedTotal,
+					amount: state.amount - additionalAmount,
+					list:{
+						...state.list,
+						[updatedProduct]: {
+							...state.list[updatedProduct],
+							amount: updatedAmount
+						}
+					}
+				}
 			
 	      
 			
