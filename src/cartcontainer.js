@@ -3,7 +3,9 @@ import {connect} from 'react-redux'
 import {seeCart} from './actions'
 import Cart from './cart'
 import {removeShopping} from './actions'
+import {updateCart} from './actions'
 import serialize from "form-serialize";
+
 
 
 class CartContainer extends Component {
@@ -21,10 +23,10 @@ this.props.seeCart()
 
 
 render(){
-const {list, amount, total,removeItem} = this.props
+const {list, amount, total,removeItem,changeQuantity} = this.props
 console.log(this.props)
 return (
-<Cart list ={list} amount={amount} total={total} removal={removeItem}/> 
+<Cart list ={list} amount={amount} total={total} removal={removeItem} update={changeQuantity}/> 
 )
 
 
@@ -46,9 +48,21 @@ return {
 			const form = e.target;
 
 			const data = serialize(form, { hash: true });
-			console.log(data)
+			
 		dispatch(removeShopping(data))
 		form.reset()
+	},
+
+	changeQuantity: (e) => {
+         
+		const data = e.target.value
+		const test = e.target.id
+		
+		
+		
+		let changed = {amount: data, product: test}
+		console.log(changed)
+		dispatch(updateCart(changed))
 	}
 	
 

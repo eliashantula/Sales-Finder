@@ -125,7 +125,8 @@ export default function groceryItem(state = initialState, Action) {
 		
 			
 	
-		case "UDATE_CART":
+		case "UPDATE_CART":
+        console.log("here")
 		let updatedProduct = Action.data.product
 		let updatedAmount = parseInt(Action.data.amount)
 		let additionalAmount, updatedTotal 
@@ -189,7 +190,7 @@ export default function groceryItem(state = initialState, Action) {
 			list: state.list
 		}
 		default:
-			console.log(Action.type);
+			console.log(Action.type)
 			return state;
 	}
 }

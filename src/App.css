@@ -75,16 +75,18 @@ html {
 .shoppingInfo {
   display: flex;
   flex-flow: row nowrap;
-  flex: 0 0 90%;
-  justify-content: center;
+  flex: 0 0 95%;
+  justify-content: flex-start;
   margin-left: 0px;
   margin-right: 0px;
 }
 
 .shoppingList {
-  flex: 0 0 45%;
+  flex: 0 0 60%;
   font-size: 14px;
   font-weight: bold;
+  text-align: start;
+  padding-top: 8px;
 }
 
 .shoppingButton {
@@ -96,19 +98,19 @@ html {
   display: flex;
   flex-flow: row nowrap;
   flex: 0 0 100%;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .delete {
   display: flex;
   flex-flow: row nowrap;
-  flex: 0 0 20%;
-  justify-content: flex-start;
+  flex: 0 0 25%;
   margin-left: 0px;
+
 }
 
 .quantityUpdate {
-  flex: 0 0 30%;
-  margin-left: auto;
+  flex: 0 0 60%;
+  margin-right: auto;
 }
 .deleteButton{
   flex: 0 0 20%;

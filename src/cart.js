@@ -15,11 +15,20 @@ return (
 }
 
 
-const ListItem = ({list, onDelete}) => {
-	console.log(list)
+
+const ListItem = ({list, onDelete, onChange}) => {
+let nums =[];
+for (let i = 1; i <= 10; i++){
+nums.push(i)
+}
+
+let options = nums.map(num=>{
+	return <option value={num}>{num}</option>
+})
+
 return (
 <div className="shoppingInfo">
-<li className="shoppingList">{list.company}{' '}{list.product} : {list.amount}</li>
+<li className="shoppingList">{list.company}{' '}{list.product} ${list.price}</li>
 <Form onSubmit={onDelete} className="delete">
 				<FormGroup className="shoppingButtons">
 					<Input 
@@ -38,22 +47,9 @@ return (
 					type="hidden"
 					name="product"
 					defaultValue={list.product} />
-					<Input type="select" name="select" className="quantityUpdate" defaultValue= {list.amount} id="quantitySelect" style={{fontSize: "10px", border: "0px"}}>
-            <option>{list.amount}</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-             <option>6</option>
-            <option>7</option>
-            <option>8</option>
-            <option>9</option>
-            <option>10</option>
-             <option>11</option>
-            <option>12</option>
-            <option>13</option>
-            <option>14</option>
-            <option>15</option>
+					<Input type="select" name="select" className="quantityUpdate" defaultValue= {list.amount} id={list.product} onChange={onChange} style={{border: "0px", fontSize: "10px"}}>
+             {options}
+
           </Input>
 					<Button type="submit" className="deleteButton" style={{fontSize: "8px", backGroundColor: "white", border: "0px"}}>
 						Delete
@@ -86,11 +82,12 @@ class Cart extends Component {
 	}
     
 	render() {
-		const {amount,list,total,removal} = this.props
+		const {amount,list,total,removal, update} = this.props
 		console.log(this.props)
 		
 		let shoppingList=Object.keys(list).map(key=>{
-			return <ListItem list = {list[key]} onDelete={removal} />
+			return <ListItem list = {list[key]} onDelete={removal} onChange={update} />
+
 		})
 		return (
 			<div className="cart">
