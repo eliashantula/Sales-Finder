@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import cart from "./shopping.png";
 import carts from "./cart1.png"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input, FormText } from "reactstrap";
-
+import RecipeButton from './recipebutton'
 const ItemAmount = ({amount}) => {
 
 return (
@@ -16,7 +16,7 @@ return (
 
 
 
-const ListItem = ({list, onDelete, onChange}) => {
+const ListItem = ({list, onDelete, onChange, onClick}) => {
 let nums =[];
 for (let i = 1; i <= 10; i++){
 nums.push(i)
@@ -28,9 +28,13 @@ let options = nums.map(num=>{
 
 return (
 <div className="shoppingInfo">
-<li className="shoppingList">{list.company}{' '}{list.product} ${list.price}</li>
+<li className="shoppingList">{list.company}{' '}{list.product}{' '}{list.quantity} ${list.price}</li>
 <Form onSubmit={onDelete} className="delete">
 				<FormGroup className="shoppingButtons">
+							<Label className="addIngredient" check style={{fontSize: "8px", paddingTop: "9px"}}>
+            <Input type="checkbox" value={list.product} onClick={onClick}/>
+            Add to recipe search
+          </Label>
 					<Input 
 					type="hidden"
 					name="company"
@@ -51,12 +55,14 @@ return (
              {options}
 
           </Input>
-					<Button type="submit" className="deleteButton" style={{fontSize: "8px", backGroundColor: "white", border: "0px"}}>
+					<Button type="submit" className="deleteButton" style={{fontSize: "8px", backGroundColor: "white", border: "0px", textAlign: "center"}}>
 						Delete
 						</Button>
-						
+			
 				</FormGroup>
+				
 			</Form>
+
  </div>
 
 	)
@@ -82,11 +88,11 @@ class Cart extends Component {
 	}
     
 	render() {
-		const {amount,list,total,removal, update} = this.props
+		const {amount,list,total,removal, update, check} = this.props
 		console.log(this.props)
 		
 		let shoppingList=Object.keys(list).map(key=>{
-			return <ListItem list = {list[key]} onDelete={removal} onChange={update} />
+			return <ListItem list = {list[key]} onDelete={removal} onChange={update} onClick={check} />
 
 		})
 		return (
@@ -115,9 +121,7 @@ class Cart extends Component {
 				<div className="totals">
 				Total: ${total}
 				</div>
-					<Button color="primary" onClick={this.toggle}>
-						Print
-					</Button>
+					<RecipeButton/>
 					</div>
 				</ModalFooter>
 				</Modal>

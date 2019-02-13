@@ -28,7 +28,7 @@ const data = [
     products: [
       {type: "Chicken Breast", price: 4.99, unit: "pound"},
       {type: "Sirloin Steak", price: 6.99, unit: "pound"},
-      {type: "Oscar Meyer Bacon 16oz", price: 2.75, unit: "pound"},
+      {type: "Oscar Meyer Bacon", price: 2.75, unit: "pound"},
        {type: "Ground Beef", price: 4.99, unit: "pound"},
          {type: "Pork Chops Bone In", price: 2.99, unit: "pound"}
    
@@ -38,12 +38,12 @@ const data = [
   {
     name: "Dairy",
     products: [
-      {type: "12 Large Eggs", price: 2.75, company: "Eggland"},
-      {type: "Sour Cream 16oz", price: 1.99, company: "Breakstones"},
-      {type: "Butter", price: 3.99, company: "Kerrygold"},
-       {type: "Kefir 32oz", price: 2.99,  company: "Wallaby"},
-         {type: "Yogurt 32oz", price: 3.99, company: "StoneyField"},
-           {type: "American Cheese 12oz", price: 2.99, company: "Kraft"},
+      {type: "Large Eggs", price: 2.75, company: "Eggland", quantity: "12"},
+      {type: "Sour Cream", price: 1.99, company: "Breakstones", quantity: "16oz"},
+      {type: "Butter", price: 3.99, company: "Kerrygold", quantity: "16oz"},
+       {type: "Plain Kefir", price: 2.99,  company: "Wallaby", quantity: "32oz"},
+         {type: "Plain Yogurt", price: 3.99, company: "StoneyField", quantity: "32oz"},
+           {type: "American Cheese", price: 2.99, company: "Kraft", quantity: "24oz"},
     ]
   },
 

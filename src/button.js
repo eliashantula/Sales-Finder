@@ -43,6 +43,10 @@ class ShopButton extends Component {
 					type="hidden"
 					name="item"
 					defaultValue={this.props.item.type} />
+					<Input
+					type="hidden"
+					name="quantity"
+					defaultValue={this.props.item.quantity} />
 					<Button
 						type="submit"
 						color="primary"

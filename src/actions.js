@@ -6,6 +6,7 @@ const ADD_SHOPPING = 'ADD_SHOPPING'
 const REMOVE_SHOPPING = 'REMOVE_SHOPPING'
 const SEE_CART='SEE_CART'
 const UPDATE_CART='UPDATE_CART'
+const SELECT_INGREDIENTS = 'SELECT_INGREDIENTS'
 
 const data = require('./sales')
 
@@ -104,4 +105,12 @@ export function updateCart(data){
 		type: UPDATE_CART,
 		data
 	}
+}
+
+export function selectIngredients(data){
+	return {
+		type: SELECT_INGREDIENTS,
+		data
+	}
+
 }

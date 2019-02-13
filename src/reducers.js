@@ -8,7 +8,8 @@ const initialState = {
 	recipes: [],
 	list: {},
 	total: 0,
-	amount: 0
+	amount: 0,
+	ingredients: []
 	};
 
 export default function groceryItem(state = initialState, Action) {
@@ -37,7 +38,7 @@ export default function groceryItem(state = initialState, Action) {
 		case "ADD_SHOPPING":
 		
 		    let amount = parseInt(Action.data.amount)
-		    
+		    let quant = Action.data.quantity
 		    let product = Action.data.item
 		    let company = Action.data.company
 		    let id = Action.data.id                                                                                                  
@@ -61,7 +62,8 @@ export default function groceryItem(state = initialState, Action) {
 						...state.list,
 						[product]: {
 							...state.list[product],
-							amount: state.list[product].amount+ amount
+							amount: state.list[product].amount+ amount,
+							quantity: quant
 						}
 
 
@@ -78,7 +80,7 @@ export default function groceryItem(state = initialState, Action) {
 				amount: state.amount + amount,
 				list : {
 					...state.list,
-					[product] : {product: product, amount: amount, company: company, price: price }
+					[product] : {product: product, amount: amount, company: company, price: price, quantity: quant }
 
 				}
 
@@ -188,6 +190,17 @@ export default function groceryItem(state = initialState, Action) {
 		return{
 			...state,
 			list: state.list
+		}
+
+		case "SELECT_INGREDIENTS": {
+			console.log(Action.data)
+			return {
+				...state,
+				ingredients: state.ingredients.concat(Action.data)
+			}
+
+
+
 		}
 		default:
 			console.log(Action.type)

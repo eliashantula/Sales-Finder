@@ -5,6 +5,7 @@ import Cart from './cart'
 import {removeShopping} from './actions'
 import {updateCart} from './actions'
 import serialize from "form-serialize";
+import {selectIngredients} from './actions'
 
 
 
@@ -23,10 +24,10 @@ this.props.seeCart()
 
 
 render(){
-const {list, amount, total,removeItem,changeQuantity} = this.props
+const {list, amount, total,removeItem,changeQuantity, checkRecipe} = this.props
 console.log(this.props)
 return (
-<Cart list ={list} amount={amount} total={total} removal={removeItem} update={changeQuantity}/> 
+<Cart list ={list} amount={amount} total={total} removal={removeItem} update={changeQuantity} check={checkRecipe}/> 
 )
 
 
@@ -63,6 +64,13 @@ return {
 		let changed = {amount: data, product: test}
 		console.log(changed)
 		dispatch(updateCart(changed))
+	},
+
+
+	checkRecipe: (e) => {
+		console.log(e.target.checked, e.target.value)
+		let ingred = {product: e.target.value, checked: e.target.checked}
+		dispatch(selectIngredients(ingred))
 	}
 	
 

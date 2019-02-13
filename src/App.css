@@ -109,11 +109,14 @@ html {
 }
 
 .quantityUpdate {
-  flex: 0 0 60%;
+  flex: 0 0 30%;
   margin-right: auto;
 }
 .deleteButton{
-  flex: 0 0 20%;
+  flex: 0 0 10%;
+}
+.addIngredient {
+  font-size: 10px;
 }
 .col-1 {
 }
