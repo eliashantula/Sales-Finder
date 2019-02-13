@@ -193,13 +193,14 @@ export default function groceryItem(state = initialState, Action) {
 		}
 
 		case "SELECT_INGREDIENTS": {
-			console.log(Action.data)
+			console.log(Action.data.product)
+			if (Action.data.checked) {
 			return {
 				...state,
-				ingredients: state.ingredients.concat(Action.data)
+				ingredients: state.ingredients.concat(Action.data.product)
 			}
 
-
+		}else if ()
 
 		}
 		default:
