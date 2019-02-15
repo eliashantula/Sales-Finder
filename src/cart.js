@@ -16,9 +16,9 @@ return (
 
 
 
-const ListItem = ({list, onDelete, onChange, onClick,saveCheck,checked}) => {
+const ListItem = ({list, onDelete, onChange, onClick,saveCheck,checked,key}) => {
 let produc = list.product
-console.log(checked)
+
 let nums =[];
 for (let i = 1; i <= 10; i++){
 nums.push(i)
@@ -30,7 +30,7 @@ let options = nums.map(num=>{
 
 return (
 <div className="shoppingInfo">
-<li className="shoppingList">{list.company}{' '}{list.product}{' '}{list.quantity} ${list.price}</li>
+<li className="shoppingList" key={key}>{list.company}{' '}{list.product}{' '}{list.quantity} ${list.price}</li>
 <Form onSubmit={onDelete} className="delete">
 				<FormGroup className="shoppingButtons">
 							<Label className="addIngredient" check style={{fontSize: "8px", paddingTop: "9px"}}>
@@ -91,10 +91,10 @@ class Cart extends Component {
     
 	render() {
 		const {amount,list,total,removal, update, check,saveCheck,checkedstatus} = this.props
-		console.log(checkedstatus)
 		
-		let shoppingList=Object.keys(list).map(key=>{
-			return <ListItem list = {list[key]} onDelete={removal} onChange={update} onClick={check} saveCheck={saveCheck} checked={checkedstatus} />
+		
+		let shoppingList=Object.keys(list).map((key,i)=>{
+			return <ListItem list = {list[key]} onDelete={removal} onChange={update} onClick={check} saveCheck={saveCheck} checked={checkedstatus} key={i} />
 
 		})
 		return (
@@ -110,7 +110,7 @@ class Cart extends Component {
 					toggle={this.toggle}
 					className={this.props.className}
 				>
-				<ModalHeader toggle={this.toggle}>Shopping List</ModalHeader>
+				<ModalHeader toggle={this.toggle}><div className="headerText" style={{}}>Shopping List</div></ModalHeader>
 				<ModalBody >
 						<ul style={{listStyleType: "none"}}>
 
@@ -123,7 +123,7 @@ class Cart extends Component {
 				<div className="totals">
 				Total: ${total}
 				</div>
-					<RecipeButton/>
+					<RecipeButton chosenItems={checkedstatus}/>
 					</div>
 				</ModalFooter>
 				</Modal>

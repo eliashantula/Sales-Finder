@@ -25,8 +25,8 @@ export default class DairyItems extends Component {
 			<div className="dairy" style={{ width: "100%", height: "1300px", backgroundImage: `url(${picture})`, height: "1300px", padding: "0%"}}>
 				<Container className="product">
 					<Row>
-						{dairy.map(item => {
-							return <DairyRow item={item} />;
+						{dairy.map((item,i) => {
+							return <DairyRow item={item} key={i} />;
 						})}
 					</Row>
 				</Container>

@@ -28,9 +28,9 @@ class FoodNav extends React.Component {
         <Nav className="menu">
           <NavLink className="navigs"
       exact to="/">Home</NavLink>
-        {sections.map(section=>{
+        {sections.map((section,i)=>{
           return (
-        <Navs section = {section}/>
+        <Navs section = {section} key={i}/>
         )})}
         
         <CartContainer/>
