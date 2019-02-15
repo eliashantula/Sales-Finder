@@ -239,7 +239,7 @@ export default function groceryItem(state = initialState, Action) {
 
 		}
 		case "CONTROL_CHECKS": {
-			console.log(state.checks)
+		
 			let checkProduct = Action.data.value 
 			if (!state.checks[checkProduct]){
 				return {
@@ -266,6 +266,8 @@ export default function groceryItem(state = initialState, Action) {
 
 		}
 		case "CREATE_CHECKS":{
+		
+			console.log(state.checks)
 		   let newCheck = Action.data
 		   if (!state.checks[newCheck]){
 		    return {
