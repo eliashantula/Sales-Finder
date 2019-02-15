@@ -25,10 +25,10 @@ this.props.seeCart()
 
 
 render(){
-const {list, amount, total,removeItem,changeQuantity, checkRecipe, saveChecks} = this.props
+const {list, amount, total,removeItem,changeQuantity, checkRecipe, saveChecks, checkedstatus} = this.props
 
 return (
-<Cart list ={list} amount={amount} total={total} removal={removeItem} update={changeQuantity} check={checkRecipe} saveCheck={saveChecks}/> 
+<Cart list ={list} amount={amount} total={total} removal={removeItem} update={changeQuantity} check={checkRecipe} saveCheck={saveChecks} checkedstatus={checkedstatus}/> 
 )
 
 

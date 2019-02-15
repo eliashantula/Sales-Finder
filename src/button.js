@@ -5,6 +5,7 @@ import CartContainer from "./cartcontainer.js";
 import { connect } from "react-redux";
 import serialize from "form-serialize";
 import {addShopping} from './actions'
+import{createChecks} from './actions'
 
 class ShopButton extends Component {
 	constructor(props) {
@@ -75,9 +76,12 @@ const mapDispatchToProps = dispatch => {
 			e.preventDefault();
 			const form = e.target;
 			const data = serialize(form, { hash: true });
+			console.log(data.item)
 			dispatch(addShopping(data))
+			dispatch(createChecks(data.item))
 			form.reset();
 		}
+
 	};
 };
 

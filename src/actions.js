@@ -8,6 +8,7 @@ const SEE_CART='SEE_CART'
 const UPDATE_CART='UPDATE_CART'
 const SELECT_INGREDIENTS = 'SELECT_INGREDIENTS'
 const CONTROL_CHECKS = 'CONTROL_CHECKS'
+const CREATE_CHECKS = 'CREATE_CHECKS'
 
 const data = require('./sales')
 
@@ -119,6 +120,13 @@ export function selectIngredients(data){
 export function controlChecks(data){
 	return {
 		type: CONTROL_CHECKS,
+		data
+	}
+}
+
+export function createChecks(data){
+	return {
+		type: CREATE_CHECKS,
 		data
 	}
 }

@@ -9,7 +9,8 @@ const initialState = {
 	list: {},
 	total: 0,
 	amount: 0,
-	ingredients: {}
+	ingredients: {},
+	checks: {}
 	};
 
 export default function groceryItem(state = initialState, Action) {
@@ -82,6 +83,10 @@ export default function groceryItem(state = initialState, Action) {
 					...state.list,
 					[product] : {product: product, amount: amount, company: company, price: price, quantity: quant }
 
+				}, 
+				checks:{
+					...state.checks,
+					[product] : {item: product, check: false}
 				}
 
 				}
@@ -125,7 +130,15 @@ export default function groceryItem(state = initialState, Action) {
 		return {...state, list: newState,
 			ingredients: newIngredients,
 			total: removeAmount,
-			amount: state.amount - quantity
+			amount: state.amount - quantity,
+			checks: {
+				...state.checks,
+				[item]:{
+					...state.checks[item],
+					item: item,
+					check: false
+				}
+			}
 		}
 		
 
@@ -225,6 +238,51 @@ export default function groceryItem(state = initialState, Action) {
 		}
 
 		}
+		case "CONTROL_CHECKS": {
+			console.log(state.checks)
+			let checkProduct = Action.data.value 
+			if (!state.checks[checkProduct]){
+				return {
+					...state,
+					checks:{
+						...state.checks,
+						[checkProduct]: {item: checkProduct, check: Action.data.check}
+					}
+				}
+			} else {
+				return {
+						...state,
+						checks: {
+							...state.checks,
+							[checkProduct]: {
+								...state.checks[checkProduct],
+								item: checkProduct, check: Action.data.check
+							}
+						}
+
+					
+				}
+			}
+
+		}
+		case "CREATE_CHECKS":{
+		   let newCheck = Action.data
+		   if (!state.checks[newCheck]){
+		    return {
+		    	...state,
+		    	checks: {
+		    		...state.checks,
+		    		[newCheck]: {item: newCheck, check: false}
+		    	}
+
+		    	}
+		    }
+		   }
+
+
+
+		
+
 		default:
 			console.log(state.ingredients)
 			return state;
