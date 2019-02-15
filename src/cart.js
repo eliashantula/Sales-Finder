@@ -16,7 +16,7 @@ return (
 
 
 
-const ListItem = ({list, onDelete, onChange, onClick}) => {
+const ListItem = ({list, onDelete, onChange, onClick,saveCheck}) => {
 let nums =[];
 for (let i = 1; i <= 10; i++){
 nums.push(i)
@@ -32,7 +32,7 @@ return (
 <Form onSubmit={onDelete} className="delete">
 				<FormGroup className="shoppingButtons">
 							<Label className="addIngredient" check style={{fontSize: "8px", paddingTop: "9px"}}>
-            <Input type="checkbox" value={list.product} onClick={onClick}/>
+            <Input type="checkbox" value={list.product} onClick={onClick} onChange={saveCheck}/>
             Add to recipe search
           </Label>
 					<Input 
@@ -88,11 +88,11 @@ class Cart extends Component {
 	}
     
 	render() {
-		const {amount,list,total,removal, update, check} = this.props
+		const {amount,list,total,removal, update, check,saveCheck} = this.props
 		console.log(this.props)
 		
 		let shoppingList=Object.keys(list).map(key=>{
-			return <ListItem list = {list[key]} onDelete={removal} onChange={update} onClick={check} />
+			return <ListItem list = {list[key]} onDelete={removal} onChange={update} onClick={check} saveCheck={saveCheck} />
 
 		})
 		return (

@@ -9,7 +9,7 @@ const initialState = {
 	list: {},
 	total: 0,
 	amount: 0,
-	ingredients: []
+	ingredients: {}
 	};
 
 export default function groceryItem(state = initialState, Action) {
@@ -109,7 +109,12 @@ export default function groceryItem(state = initialState, Action) {
 		removeAmount = (removeAmount * 1000).toFixed()
 		removeAmount = parseInt(removeAmount/10)
 		removeAmount = parseFloat(removeAmount/100)
-		console.log(Action.data) 
+		let newIngredients = Object.keys(state.ingredients).reduce((result,ingr)=>{
+			if (item !== ingr){
+				result[ingr] = {ingr: ingr}
+			}
+			return result
+		}, {})
 		let newState = Object.keys(state.list).reduce((result,prod)=>{
 			if(prod !== item){
 				result[prod] = state.list[prod]
@@ -118,6 +123,7 @@ export default function groceryItem(state = initialState, Action) {
 			return result;
 			},{})
 		return {...state, list: newState,
+			ingredients: newIngredients,
 			total: removeAmount,
 			amount: state.amount - quantity
 		}
@@ -193,18 +199,34 @@ export default function groceryItem(state = initialState, Action) {
 		}
 
 		case "SELECT_INGREDIENTS": {
-			console.log(Action.data.product)
-			if (Action.data.checked) {
+			console.log(state.ingredients)
+			let ingredient = Action.data.product
+			if (Action.data.checked && !state.ingredients[ingredient]) {
 			return {
 				...state,
-				ingredients: state.ingredients.concat(Action.data.product)
+				ingredients: {
+					...state.ingredients,
+					[ingredient]: {ingredient: ingredient}
+
+					
+				}
 			}
 
-		}else if ()
+		}else if (!Action.data.checked && state.ingredients[ingredient]){
+			let newIngredients = Object.keys(state.ingredients).reduce((updatedIngredients,ingred)=>{
+				if (ingred !== ingredient){
+				updatedIngredients[ingred] = {ingred: ingred}}
+				return  updatedIngredients
+			},{})
+			return {
+				...state,
+				ingredients: newIngredients
+			}
+		}
 
 		}
 		default:
-			console.log(Action.type)
+			console.log(state.ingredients)
 			return state;
 	}
 }
