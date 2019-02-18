@@ -63,13 +63,13 @@ return {
 		
 		
 		let changed = {amount: data, product: test}
-		console.log(changed)
+		
 		dispatch(updateCart(changed))
 	},
 
 
 	checkRecipe: (e) => {
-		console.log(e.target.checked, e.target.value)
+		
 		let ingred = {product: e.target.value, checked: e.target.checked}
 		dispatch(selectIngredients(ingred))
 	},

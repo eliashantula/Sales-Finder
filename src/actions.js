@@ -9,7 +9,7 @@ const UPDATE_CART='UPDATE_CART'
 const SELECT_INGREDIENTS = 'SELECT_INGREDIENTS'
 const CONTROL_CHECKS = 'CONTROL_CHECKS'
 const CREATE_CHECKS = 'CREATE_CHECKS'
-
+const ADD_RECIPE_INGREDIENTS = 'ADD_RECIPE_INGREDIENTS'
 const data = require('./sales')
 
 let food;
@@ -127,6 +127,13 @@ export function controlChecks(data){
 export function createChecks(data){
 	return {
 		type: CREATE_CHECKS,
+		data
+	}
+}
+
+export function addRecipeIngredients(data){
+	return {
+		type: ADD_RECIPE_INGREDIENTS,
 		data
 	}
 }

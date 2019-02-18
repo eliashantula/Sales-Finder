@@ -10,7 +10,8 @@ const initialState = {
 	total: 0,
 	amount: 0,
 	ingredients: {},
-	checks: {}
+	checks: {}, 
+	recipeCheck: []
 	};
 
 export default function groceryItem(state = initialState, Action) {
@@ -281,12 +282,18 @@ export default function groceryItem(state = initialState, Action) {
 		    }
 		   }
 
+		   case "ADD_RECIPE_INGREDIENTS":
+		   console.log(state.recipeCheck)
+		   return {
+		   	...state,
+		   	recipeCheck: Action.data
+		   }
 
 
 		
 
 		default:
-			console.log(state.ingredients)
+			
 			return state;
 	}
 }
