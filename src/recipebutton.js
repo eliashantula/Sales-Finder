@@ -31,7 +31,7 @@ Recipe Search
  const mapDispatchToProps = (dispatch)=>{
 return {
   onSubmits: (e) => {
-  	console.log(e.target.value)
+  	
   e.preventDefault()
    dispatch(addRecipeIngredients(e.target.value))
 		}
