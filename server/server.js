@@ -81,7 +81,11 @@ app.get('/api/ingredient', (req, res, next) => {
 
 
 //JSON properties to extract: extendedIngredients,instructions,image
+//recipeSearch extract : let newResult = result.map(recipe=>{
+//return {id: recipe.id,image: recipe.image, title: recipe.title}
 
+
+//})
 
 function errorHandler(err, req, res, next) {
     console.error('Error: ', err.stack)
