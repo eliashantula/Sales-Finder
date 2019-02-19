@@ -2,6 +2,7 @@
   "name": "resturant",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.6",
     "dotenv": "^6.2.0",
