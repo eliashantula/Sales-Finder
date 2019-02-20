@@ -30,7 +30,7 @@ function parseJSON(response) {
 
 
 
-app.get('/api/recipe', (req, res, next) => {
+app.get('/api/recipe/:ingred', (req, res, next) => {
        let string = Object.keys(req.query).map(item => {
         return req.query[item]
     }).join("%2C")
