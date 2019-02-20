@@ -4,22 +4,22 @@ import groceryItem from "./reducers";
 import CartContainer from "./cartcontainer.js";
 import { connect } from "react-redux";
 import serialize from "form-serialize";
-import {addShopping} from './actions'
-import{createChecks} from './actions'
+import { addShopping } from './actions'
+import { createChecks } from './actions'
 
 class ShopButton extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			amount: "",
-			item: ""
-		};
-	}
+    constructor(props) {
+        super(props);
+        this.state = {
+            amount: "",
+            item: ""
+        };
+    }
 
-	render() {
-		
-		return (
-			<Form onSubmit={this.props.checkSubmits} className="testing">
+    render() {
+
+        return (
+            <Form onSubmit={this.props.checkSubmits} className="testing">
 				<FormGroup className="shoppingButton"
 				
 				>
@@ -61,28 +61,28 @@ class ShopButton extends Component {
 					</Button>
 				</FormGroup>
 			</Form>
-		);
-	}
+        );
+    }
 }
 
 const mapStateToProps = state => {
-	return {
-		list: state.list
-	};
+    return {
+        list: state.list
+    };
 };
 const mapDispatchToProps = dispatch => {
-	return {
-		checkSubmits: e => {
-			e.preventDefault();
-			const form = e.target;
-			const data = serialize(form, { hash: true });
-			console.log(data.item)
-			dispatch(addShopping(data))
-			dispatch(createChecks(data.item))
-			form.reset();
-		}
+    return {
+        checkSubmits: e => {
+            e.preventDefault();
+            const form = e.target;
+            const data = serialize(form, { hash: true });
 
-	};
+            dispatch(addShopping(data))
+            dispatch(createChecks(data.item))
+            form.reset();
+        }
+
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(ShopButton);

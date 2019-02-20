@@ -3,33 +3,33 @@ import cart from "./shopping.png";
 import carts from "./cart1.png"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input, FormText } from "reactstrap";
 import RecipeButton from './recipebutton'
-const ItemAmount = ({amount}) => {
+const ItemAmount = ({ amount }) => {
 
-return (
-
-
-<p className="h7" style={{color: "white", fontSize: "11px", margin: "0%"}}>{amount} items in cart</p>
+    return (
 
 
-	)
+        <p className="h7" style={{color: "white", fontSize: "11px", margin: "0%"}}>{amount} items in cart</p>
+
+
+    )
 }
 
 
 
-const ListItem = ({list, onDelete, onChange, onClick,saveCheck,checked,key}) => {
-let produc = list.product
+const ListItem = ({ list, onDelete, onChange, onClick, saveCheck, checked, key }) => {
+    let produc = list.product
 
-let nums =[];
-for (let i = 1; i <= 10; i++){
-nums.push(i)
-}
+    let nums = [];
+    for (let i = 1; i <= 10; i++) {
+        nums.push(i)
+    }
 
-let options = nums.map(num=>{
-	return <option value={num}>{num}</option>
-})
+    let options = nums.map(num => {
+        return <option value={num}>{num}</option>
+    })
 
-return (
-<div className="shoppingInfo">
+    return (
+        <div className="shoppingInfo">
 <li className="shoppingList" key={key}>{list.company}{' '}{list.product}{' '}{list.quantity} ${list.price}</li>
 <Form onSubmit={onDelete} className="delete">
 				<FormGroup className="shoppingButtons">
@@ -67,7 +67,7 @@ return (
 
  </div>
 
-	)
+    )
 
 
 }
@@ -76,29 +76,29 @@ return (
 
 
 class Cart extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			modal: false
-		};
-		this.toggle = this.toggle.bind(this);
-	}
-	toggle() {
-		this.setState({
-			modal: !this.state.modal
-		});
-	}
-    
-	render() {
-		const {amount,list,total,removal, update, check,saveCheck,checkedstatus} = this.props
-		
-		
-		let shoppingList=Object.keys(list).map((key,i)=>{
-			return <ListItem list = {list[key]} onDelete={removal} onChange={update} onClick={check} saveCheck={saveCheck} checked={checkedstatus} key={i} />
+    constructor(props) {
+        super(props);
+        this.state = {
+            modal: false
+        };
+        this.toggle = this.toggle.bind(this);
+    }
+    toggle() {
+        this.setState({
+            modal: !this.state.modal
+        });
+    }
 
-		})
-		return (
-			<div className="cart">
+    render() {
+        const { amount, list, total, removal, update, check, saveCheck, checkedstatus } = this.props
+
+
+        let shoppingList = Object.keys(list).map((key, i) => {
+            return <ListItem list = {list[key]} onDelete={removal} onChange={update} onClick={check} saveCheck={saveCheck} checked={checkedstatus} key={i} />
+
+        })
+        return (
+            <div className="cart">
 			
 				<Button style={{ border: "0px", padding: "0px" ,background: "transparent", width: "100%"}} onClick={this.toggle}>
 					<img src={carts} className="cartImage" style={{maxWidth: "30%", maxHeight: "80px", marginLeft: "auto"}} />
@@ -128,7 +128,7 @@ class Cart extends Component {
 				</ModalFooter>
 				</Modal>
 			</div>
-		);
-	}
+        );
+    }
 }
 export default Cart;

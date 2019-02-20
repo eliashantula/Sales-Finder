@@ -4,12 +4,13 @@ import {connect} from 'react-redux'
 import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
 import serialize from 'form-serialize'
 import {addRecipeIngredients} from './actions'
+import {findRecipes} from './actions'
 
 
 let RecipeButton = ({chosenItems, onSubmits, recipeLookup}) => {
-	console.log(recipeLookup)
+	
 let data = chosenItems
-let value = Object.keys(data).filter(item=> data[item].check == true)
+let value = Object.keys(data).filter(item=> data[item].check == true).join("%2C").split(" ").join("+")
 
 
 return (
@@ -31,9 +32,10 @@ Recipe Search
  const mapDispatchToProps = (dispatch)=>{
 return {
   onSubmits: (e) => {
-  	
+  	console.log(e.target.value)
+
   e.preventDefault()
-   dispatch(addRecipeIngredients(e.target.value))
+   dispatch(findRecipes(e.target.value))
 		}
   	
   }
