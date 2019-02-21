@@ -2,7 +2,7 @@ require('dotenv').config()
 require('es6-promise').polyfill()
 require('isomorphic-fetch')
 const RECIPE_KEY = process.env.API_CLIENT_SECRET
-const baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=9&ranking=1&ingredients="
+const baseUrl = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=1&ranking=1&ingredients="
 const recipeDetailUrl = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/"
 require('isomorphic-fetch')
 const express = require('express');
@@ -31,10 +31,8 @@ function parseJSON(response) {
 
 
 app.get('/api/recipe/:ingred', (req, res, next) => {
-       let string = Object.keys(req.query).map(item => {
-        return req.query[item]
-    }).join("%2C")
-
+       let string = req.params.ingred
+console.log(string)
 
 
     fetch(`${baseUrl}${string}`, {
@@ -47,11 +45,16 @@ app.get('/api/recipe/:ingred', (req, res, next) => {
         .then(checkStatus)
         .then(parseJSON)
         .then((json) => {
+        let newResult = json.map(recipe=>{
+          return {id: recipe.id, image: recipe.image, title: recipe.title}
 
-            res.json(json)
+        })
+        console.log(newResult)
+            res.json(newResult)
 
         })
         .catch((error) => {
+
             next(error)
         })
 })
@@ -69,7 +72,12 @@ app.get('/api/ingredient', (req, res, next) => {
         .then(checkStatus)
         .then(parseJSON)
         .then((json) => {
-            res.json(json)
+        let newResult = json.map(recipe=>{
+          return {id: recipe.id, image: recipe.image, title: recipe.title}
+
+        })
+        console.log(newResult)
+            res.json(newResult)
         }).catch((error) => {
             next(error)
         })
