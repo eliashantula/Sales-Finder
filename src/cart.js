@@ -103,7 +103,7 @@ class Cart extends Component {
             <div className="cart">
 			
 				<Button style={{ border: "0px", padding: "0px" ,background: "transparent", width: "100%"}} onClick={this.toggle}>
-					<img src={carts} className="cartImage" style={{maxWidth: "30%", maxHeight: "80px", marginLeft: "auto"}} />
+					<img src={carts} className="cartImage" style={{ maxHeight: "30px"}} />
 					<ItemAmount amount = {amount}/>
 				</Button>
 				

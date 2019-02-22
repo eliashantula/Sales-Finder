@@ -5,7 +5,7 @@ import {
   Route, NavLink, Switch
 } from 'react-router-dom';
 import CartContainer from './cartcontainer'
-const sections = ["Vegetables", "Dairy", "Meats", "Drinks"];
+const sections = ["Vegetables", "Dairy", "Meats", "Drinks and Snacks"];
 
 const Navs = ({section}) => {
 
@@ -22,7 +22,7 @@ return (
 class FoodNav extends React.Component {
   render() {
     return (
-      <div>
+      
       
       
         <Nav className="menu">
@@ -38,7 +38,7 @@ class FoodNav extends React.Component {
         
      
       
-      </div>
+     
     );
   }
 }
