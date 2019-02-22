@@ -1,42 +1,32 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import drinks1 from './drinks.jpg'
-import {Row, Col, Container} from 'reactstrap'
+import { Row, Col, Container } from 'reactstrap'
 import Button from './button'
-const DrinkItems = ({drink,list}) => {
-return (
-
-<Col sm="6" style={{color: "black", border: "1px solid black"}}>
-<div className="item">
-{drink.item} <br/> {drink.price}
-</div>
-<Button item = {drink} list={list}/>
-</Col>
+import ItemInfo from './itemInfo'
 
 
-	)
-}
 
 export default class Drinks extends Component {
-constructor(props){
-	super(props)
-}
+    constructor(props) {
+        super(props)
+    }
 
 
 
 
+    render() {
+        const { drinks } = this.props
+        console.log(drinks)
+        return (
 
-render(){
-const {drinks,list} = this.props
-return (
-
-<div className = "drinks" style={{backgroundImage:`url(${drinks1})`, width: "100%", height: "800px"}}>
-<Container>
+            <div className = "drinks" style={{backgroundImage:`url(${drinks1})`, width: "100%", height: "800px"}}>
+<Container className="product">
 <Row>
 {drinks.map(drink=>{
 
 return (
 
- <DrinkItems drink = {drink} list={list}/>
+ <ItemInfo item = {drink}/>
 
 
 
@@ -54,11 +44,11 @@ return (
 
 </div>
 
-	)
+        )
 
 
 
-}
+    }
 
 
 

@@ -1,26 +1,25 @@
-
 import React, { Component } from "react";
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
 import serialize from 'form-serialize'
-import {addRecipeIngredients} from './actions'
-import {findRecipes} from './actions'
+import { addRecipeIngredients } from './actions'
+import { findRecipes } from './actions'
 
 
-let RecipeButton = ({chosenItems, onSubmits, recipeLookup}) => {
-	
-let data = chosenItems
-let value = Object.keys(data).filter(item=> data[item].check == true).join("%2C").split(" ").join("+")
+let RecipeButton = ({ chosenItems, onSubmits, recipeLookup }) => {
+
+    let data = chosenItems
+    let value = Object.keys(data).filter(item => data[item].check == true).join("%2C").split(" ").join("+")
 
 
-return (
+    return (
 
-<Button type="submit" color="danger"  value={value} style={{fontSize: "10px"}} onClick = {onSubmits}>
+        <Button type="submit" color="danger"  value={value} style={{fontSize: "10px"}} onClick = {onSubmits}>
 Recipe Search
 </Button>
 
 
-	)
+    )
 
 
 
@@ -29,31 +28,29 @@ Recipe Search
 }
 
 
- const mapDispatchToProps = (dispatch)=>{
-return {
-  onSubmits: (e) => {
-  	console.log(e.target.value)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onSubmits: (e) => {
+            
 
-  e.preventDefault()
-   dispatch(findRecipes(e.target.value))
-		}
-  	
-  }
+            e.preventDefault()
+            dispatch(findRecipes(e.target.value))
+        }
+
+    }
 
 }
 
 const mapStateToProps = (state) => {
-return {
-	recipeLookup: state.recipeCheck
-}
+    return {
+        recipeLookup: state.recipeCheck
+    }
 
 }
 
- 
 
 
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(RecipeButton)
 
-
+export default connect(mapStateToProps, mapDispatchToProps)(RecipeButton)

@@ -14,15 +14,16 @@ class DrinkContainer extends Component {
 	}
 
 	render() {
-		const { drinks,list } = this.props;
-		return <Drinks drinks={drinks} list={list} />;
+		const { drinks } = this.props;
+		console.log(drinks)
+		return <Drinks drinks={drinks} />;
 	}
 }
 
 const mapStateToProps = state => {
 	return {
 		drinks: state.drinks,
-		list: state.list
+		
 	};
 };
 

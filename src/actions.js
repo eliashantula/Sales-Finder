@@ -13,6 +13,9 @@ const ADD_RECIPE_INGREDIENTS = 'ADD_RECIPE_INGREDIENTS'
 const GET_RECIPE_REQUEST = 'GET_RECIPE_REQUEST'
 const GET_RECIPE_SUCCESS = 'GET_RECIPE_SUCCESS'
 const GET_RECIPE_FAILURE = 'GET_RECIPE_FAILURE'
+const GET_FULL_RECIPE_REQUEST = 'GET_FULL_RECIPE_REQUEST'
+const GET_FULL_RECIPE_SUCCESS = 'GET_FULL_RECIPE_SUCCESS'
+const GET_FULL_RECIPE_FAILURE = 'GET_FULL_RECIPE_FAILURE'
 
 const data = require('./sales')
 
@@ -70,7 +73,7 @@ export function getDairy() {
 export function getDrinks() {
 
     data.default.forEach(item => {
-        if (item.name === 'Drinks') {
+        if (item.name === "Beverages and Snacks") {
             food = item.products
         }
     })
@@ -163,9 +166,62 @@ export function getRecipeFailure(error) {
     }
 }
 
+export function getFullRecipeRequest() {
+    return {
+        type: GET_FULL_RECIPE_REQUEST
+    }
+
+
+}
+
+export function getFullRecipeSuccess(data) {
+    return {
+        type: GET_FULL_RECIPE_SUCCESS,
+        data
+    }
+}
+
+
+export function getFullRecipeFailure(error) {
+    return {
+        type: GET_FULL_RECIPE_FAILURE,
+        error
+    }
+}
+
+
+export function getFullRecipes(data) {
+    return (dispatch) => {
+        dispatch(getFullRecipeRequest())
+        fetch(`api/fullrecipe/${data}`)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`${response.statusText}`)
+                }
+
+                return response.json()
+
+
+            })
+            .then((json) => {
+
+                dispatch(getFullRecipeSuccess(json))
+
+            })
+            .catch((error) => {
+                dispatch(getFullRecipeFailure(error))
+
+
+            })
+
+    }
+
+
+
+
+}
 
 export function findRecipes(data) {
-	console.log(data)
     return (dispatch) => {
         dispatch(getRecipeRequest())
         fetch(`api/recipe/${data}`)
@@ -178,20 +234,18 @@ export function findRecipes(data) {
 
             })
             .then((json) => {
+                console.log(json)
                 dispatch(getRecipeSuccess(json))
 
 
 
             })
             .catch((error) => {
-                dispatch(getRecipeFailure())
+                dispatch(getRecipeFailure(error))
 
 
             })
 
     }
 }
-
-
-
 

@@ -3,6 +3,7 @@ import cart from "./shopping.png";
 import carts from "./cart1.png"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input, FormText } from "reactstrap";
 import RecipeButton from './recipebutton'
+import RecipeInfo from './recipeinfocontainer'
 const ItemAmount = ({ amount }) => {
 
     return (
@@ -30,6 +31,7 @@ const ListItem = ({ list, onDelete, onChange, onClick, saveCheck, checked, key }
 
     return (
         <div className="shoppingInfo">
+
 <li className="shoppingList" key={key}>{list.company}{' '}{list.product}{' '}{list.quantity} ${list.price}</li>
 <Form onSubmit={onDelete} className="delete">
 				<FormGroup className="shoppingButtons">
@@ -112,6 +114,7 @@ class Cart extends Component {
 				>
 				<ModalHeader toggle={this.toggle}><div className="headerText" style={{}}>Shopping List</div></ModalHeader>
 				<ModalBody >
+				  <RecipeInfo/>
 						<ul style={{listStyleType: "none"}}>
 
 						{shoppingList}

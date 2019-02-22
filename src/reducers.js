@@ -12,6 +12,7 @@ const initialState = {
     ingredients: {},
     checks: {},
     recipeCheck: [],
+    fullRecipes: [],
     isFetching: false,
     error: null
 };
@@ -305,9 +306,11 @@ export default function groceryItem(state = initialState, Action) {
             }
 
         case "GET_RECIPE_SUCCESS":
+        console.log(Action.data)
+
             return {
                 ...state,
-                recipes: [...state.recipes, Action.data]
+                recipes: Action.data
 
             }
 
@@ -317,6 +320,26 @@ export default function groceryItem(state = initialState, Action) {
                 isFetching: false,
                 error: Action.error
             }
+
+         case "GET_FULL_RECIPE_REQUEST":
+         return {
+         	...state,
+         	isFetching: true,
+         	error: null
+         }
+
+         case "GET_FULL_RECIPE_SUCCESS":
+         return {
+         	...state,
+         	fullRecipes: [...state.fullRecipes, Action.data]
+         }
+
+         case "GET_FULL_RECIPE_FAILURE":
+         return {
+         	...state,
+         	isFetching: false,
+         	error: Action.error
+         }
 
         default:
 

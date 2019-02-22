@@ -26,11 +26,11 @@ const data = [
   {
     name: "Meats",
     products: [
-      {type: "Chicken Breast", price: 4.99, unit: "pound"},
-      {type: "Sirloin Steak", price: 6.99, unit: "pound"},
-      {type: "Oscar Meyer Bacon", price: 2.75, unit: "pound"},
-       {type: "Ground Beef", price: 4.99, unit: "pound"},
-         {type: "Pork Chops Bone In", price: 2.99, unit: "pound"}
+      {type: "Chicken Breast", price: 4.99, quantity: "pound"},
+      {type: "Sirloin Steak", price: 6.99, quantity: "pound"},
+      {type: "Oscar Meyer Bacon", price: 2.75, quantity: "pound"},
+       {type: "Ground Beef", price: 4.99, quantity: "pound"},
+         {type: "Pork Chops Bone In", price: 2.99, quantity: "pound"}
    
     ]
   },
