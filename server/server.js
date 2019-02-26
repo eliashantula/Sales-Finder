@@ -73,7 +73,7 @@ app.get('/api/fullrecipe/:id', (req, res, next) => {
         .then(parseJSON)
         .then((json) => {
         let newResult = json.map(recipe=>{
-          return {id: recipe.extendedIngredients, instructions: instructions}
+          return {ingredients: recipe.extendedIngredients, instructions: instructions}
 
         })
         console.log(newResult)
