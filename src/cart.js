@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import cart from "./shopping.png";
+
 import carts from "./cart1.png"
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input, FormText } from "reactstrap";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from "reactstrap";
 import RecipeButton from './recipebutton'
 import RecipeInfo from './recipeinfocontainer'
 const ItemAmount = ({ amount }) => {
@@ -17,7 +17,7 @@ const ItemAmount = ({ amount }) => {
 
 
 
-const ListItem = ({ list, onDelete, onChange, onClick, saveCheck, checked, key }) => {
+const ListItem = ({ list, onDelete, onChange, onClick, saveCheck, checked, info }) => {
     let produc = list.product
 
     let nums = [];
@@ -25,14 +25,14 @@ const ListItem = ({ list, onDelete, onChange, onClick, saveCheck, checked, key }
         nums.push(i)
     }
 
-    let options = nums.map(num => {
-        return <option value={num}>{num}</option>
+    let options = nums.map((num,i) => {
+        return <option value={num} key={i}>{num}</option>
     })
 
     return (
         <div className="shoppingInfo">
 
-<li className="shoppingList" key={key}>{list.company}{' '}{list.product}{' '}{list.quantity} ${list.price}</li>
+<li className="shoppingList">{list.company}{' '}{list.product}{' '}{list.quantity} ${list.price}</li>
 <Form onSubmit={onDelete} className="delete">
 				<FormGroup className="shoppingButtons">
 							<Label className="addIngredient" check style={{fontSize: "8px", paddingTop: "9px"}}>
@@ -84,15 +84,22 @@ class Cart extends Component {
             modal: false
         };
         this.toggle = this.toggle.bind(this);
+        this.testing = this.testing.bind(this)
     }
     toggle() {
+    
         this.setState({
             modal: !this.state.modal
         });
+        
+    }
+
+    testing(){
+    	
     }
 
     render() {
-        const { amount, list, total, removal, update, check, saveCheck, checkedstatus } = this.props
+        const { amount, list, total, removal, update, check, saveCheck, checkedstatus, clearRecipe } = this.props
 
 
         let shoppingList = Object.keys(list).map((key, i) => {
@@ -103,7 +110,7 @@ class Cart extends Component {
             <div className="cart">
 			
 				<Button style={{ border: "0px", padding: "0px" ,background: "transparent", width: "100%"}} onClick={this.toggle}>
-					<img src={carts} className="cartImage" style={{ maxHeight: "30px"}} />
+					<img src={carts} alt="cart" className="cartImage" style={{ maxHeight: "30px"}} />
 					<ItemAmount amount = {amount}/>
 				</Button>
 				
@@ -112,7 +119,7 @@ class Cart extends Component {
 					toggle={this.toggle}
 					className={this.props.className}
 				>
-				<ModalHeader toggle={this.toggle}><div className="headerText" style={{}}>Shopping List</div></ModalHeader>
+				<ModalHeader toggle={this.toggle} onClick={clearRecipe}><div className="headerText" style={{}}>Shopping List</div></ModalHeader>
 				<ModalBody >
 				  <RecipeInfo/>
 						<ul style={{listStyleType: "none"}}>

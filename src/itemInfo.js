@@ -1,12 +1,12 @@
-import React, {Component} from 'react'
-import { Container, Row, Col } from "reactstrap";
+import React  from 'react'
+import { Col } from "reactstrap";
 import Button from './button'
 
 
-let ItemInfo = ({ item, key }) => {
+let ItemInfo = ({ item, info }) => {
     return (
         <Col className = "itemInfo" style={{ color: "white", marginTop: "20px" }}>
-		    <h3 className="description">{item.company}{' '}
+		    <h3 className="description" key={info}>{item.company}{' '}
 			{item.type}{' '}{item.quantity}{' '}
 			<span style={{fontSize: "15px"}}>${item.price}</span>
 			</h3>

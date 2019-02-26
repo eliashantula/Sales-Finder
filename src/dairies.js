@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row } from "reactstrap";
 import picture from "./dairy.jpg";
-import Button from './button'
+
 import ItemInfo from './itemInfo'
 /*let DairyRow = ({ item, key }) => {
     return (
@@ -16,14 +16,12 @@ import ItemInfo from './itemInfo'
 };*/
 
 export default class DairyItems extends Component {
-    constructor() {
-        super();
-    }
+   
     render() {
         const { dairy } = this.props;
 
         return (
-            <div className="dairy" style={{ width: "100%", height: "1300px", backgroundImage: `url(${picture})`, height: "1300px", padding: "0%"}}>
+            <div className="dairy" style={{ width: "100%", height: "1300px", backgroundImage: `url(${picture})`, padding: "0%", backgroundRepeat: "no-repeat", backgroundSize: "contain"}}>
 				<Container className="product">
 					<Row>
 						{dairy.map((item,i) => {

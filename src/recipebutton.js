@@ -1,15 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from 'react-redux'
-import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
-import serialize from 'form-serialize'
-import { addRecipeIngredients } from './actions'
+import { Button } from "reactstrap";
+
+
 import { findRecipes } from './actions'
 
 
 let RecipeButton = ({ chosenItems, onSubmits, recipeLookup }) => {
 
     let data = chosenItems
-    let value = Object.keys(data).filter(item => data[item].check == true).join("%2C").split(" ").join("+")
+    let value = Object.keys(data).filter(item => data[item].check === true).join("%2C").split(" ").join("+")
 
 
     return (

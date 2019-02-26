@@ -1,14 +1,11 @@
 import React, { Component } from "react";
-import groceryItem from "./reducers";
 
 import { connect } from "react-redux";
 import { getDairy } from "./actions";
 import DairyItems from "./dairies";
 
 class DairyContainer extends Component {
-    constructor(props) {
-        super(props);
-    }
+   
 
     componentDidMount() {
         this.props.getDairy();

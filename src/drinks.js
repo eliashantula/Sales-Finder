@@ -1,15 +1,12 @@
 import React, { Component } from 'react'
 import drinks1 from './drinks.jpg'
-import { Row, Col, Container } from 'reactstrap'
-import Button from './button'
+import { Row, Container } from 'reactstrap'
 import ItemInfo from './itemInfo'
 
 
 
 export default class Drinks extends Component {
-    constructor(props) {
-        super(props)
-    }
+   
 
 
 

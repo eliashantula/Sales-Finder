@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
-import groceryItem from "./reducers";
-import CartContainer from "./cartcontainer.js";
+import { Button, Form, FormGroup, Input} from "reactstrap";
 import { connect } from "react-redux";
 import serialize from "form-serialize";
 import { addShopping } from './actions'
@@ -51,7 +49,7 @@ class ShopButton extends Component {
 					<Button
 						type="submit"
 						color="primary"
-						/*id={this.props.item}*/
+						
 						size="sm"
 					>
 						Add To List

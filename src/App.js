@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Menu from './menu'
+
 import FoodNav from './nav'
-import { Nav, NavItem } from "reactstrap";
+
 import MeatContainer from './meatcontainer'
 import VegetableContainer from './vegetablecontainer'
 import DairyContainer from './dairycontainer'
 import DrinkContainer from './drinkcontainer'
-import picture from "./dairy.jpg";
+
 import {
   BrowserRouter as Router,
-  Route, NavLink, Switch
+  Route, Switch
 } from 'react-router-dom'
 import { Jumbotron, Button } from 'reactstrap';
-import CartContainer from './cartcontainer'
+
 
 
 const home = (props) => {
@@ -67,7 +66,7 @@ class App extends Component {
      <Route exact path = "/meats" component={MeatContainer}/>
       <Route exact path = "/vegetables" component={VegetableContainer}/>
       <Route exact path ="/dairy" component ={DairyContainer}/>
-      <Route exact path = '/drinks' component = {DrinkContainer}/>
+      <Route exact path = '/drinks-snacks' component = {DrinkContainer}/>
       
 </Switch>
      </div>

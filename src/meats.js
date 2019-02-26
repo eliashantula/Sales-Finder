@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 import meat from './meat.jpg'
 import ItemInfo from './itemInfo'
 
@@ -8,7 +8,7 @@ import ItemInfo from './itemInfo'
 
 
 
-export default class MeatItems extends React.Component {
+export default class MeatItems extends Component {
   render() {
   	const {items} = this.props
  

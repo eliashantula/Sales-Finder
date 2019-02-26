@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import {connect} from "react-redux";
 import { getMeats } from "./actions";
-import groceryItem from './reducers'
 import MeatItems from './meats'
 
 class MeatContainer extends Component {
-	constructor(props) {
-		super(props);
-	}
+	
 
   componentDidMount(){
   this.props.getMeats()

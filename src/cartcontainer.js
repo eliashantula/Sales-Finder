@@ -7,13 +7,12 @@ import { updateCart } from './actions'
 import serialize from "form-serialize";
 import { selectIngredients } from './actions'
 import { controlChecks } from './actions'
+import { clearRecipes } from './actions'
 
 
 
 class CartContainer extends Component {
-    constructor(props) {
-        super(props)
-    }
+   
 
     componentDidMount() {
         this.props.seeCart()
@@ -25,10 +24,10 @@ class CartContainer extends Component {
 
 
     render() {
-        const { list, amount, total, removeItem, changeQuantity, checkRecipe, saveChecks, checkedstatus } = this.props
+        const { list, amount, total, removeItem, changeQuantity, checkRecipe, saveChecks, checkedstatus, clearRecipes } = this.props
 
         return (
-            <Cart list ={list} amount={amount} total={total} removal={removeItem} update={changeQuantity} check={checkRecipe} saveCheck={saveChecks} checkedstatus={checkedstatus}/>
+            <Cart list ={list} amount={amount} total={total} removal={removeItem} update={changeQuantity} check={checkRecipe} saveCheck={saveChecks} checkedstatus={checkedstatus} clearRecipe={clearRecipes}/>
         )
 
 
@@ -80,6 +79,12 @@ const mapDispatchToProps = (dispatch) => {
 
             dispatch(controlChecks(saved))
 
+
+        },
+
+        clearRecipes: () => {
+            console.log("testing")
+            dispatch(clearRecipes())
 
         }
     }

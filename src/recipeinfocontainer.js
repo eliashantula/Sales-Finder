@@ -4,9 +4,7 @@ import { connect } from 'react-redux'
 import {getFullRecipes} from './actions'
 
 class RecipeInfo extends Component {
-    constructor(props) {
-        super(props)
-    }
+    
 
     /*componentWillReceiveProps() {
         this.props.getRecipes();

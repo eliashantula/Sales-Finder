@@ -2,12 +2,12 @@ import React, {Component} from 'react'
 
 let RecipeSnapshot = ({recipe}) => {
 
-console.log(recipe)
+
 
 return (
 <div className="individualRecipe">
-<img src={recipe.image} style={{width: "100%", height: "auto"}}/>
-<h7 className="recipeTitle">{recipe.title}</h7> 
+<img src={recipe.image} alt="fooditem" style={{width: "100%", height: "auto"}}/>
+<h5 className="recipeTitle">{recipe.title}</h5> 
 </div>
 
 	)
@@ -24,19 +24,16 @@ return (
 
 export default class RecipePreview extends Component {
 
-constructor(props){
-	super(props)
-}
 
 
 render(){
-const {recipes, getFullRecipesInfo, fullRecipe } = this.props
-console.log(recipes)
+const {recipes, getFullRecipesInfo } = this.props
+
 return (
 <div className="recipePreview">
-{recipes.map(recipe=>{
+{recipes.map((recipe,i)=>{
 
-return <RecipeSnapshot recipe = {recipe}/>
+return <RecipeSnapshot recipe = {recipe} key={i}/>
 
 
 })}

@@ -1,17 +1,16 @@
 import React from "react";
-import { Nav, NavItem} from "reactstrap";
+import { Nav} from "reactstrap";
 import {
-  BrowserRouter as Router,
-  Route, NavLink, Switch
+   NavLink
 } from 'react-router-dom';
 import CartContainer from './cartcontainer'
-const sections = ["Vegetables", "Dairy", "Meats", "Drinks and Snacks"];
+const sections = ["Vegetables", "Dairy", "Meats", "Drinks-Snacks"];
 
-const Navs = ({section}) => {
+const Navs = ({section, info}) => {
 
 return (
 
-<NavLink className="navigs" exact to={`/${section}`}>{`${section}`}</NavLink>
+<NavLink className="navigs" key={info} exact to={`/${section}`}>{`${section}`}</NavLink>
 
 
   )

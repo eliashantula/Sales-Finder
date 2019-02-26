@@ -16,6 +16,7 @@ const GET_RECIPE_FAILURE = 'GET_RECIPE_FAILURE'
 const GET_FULL_RECIPE_REQUEST = 'GET_FULL_RECIPE_REQUEST'
 const GET_FULL_RECIPE_SUCCESS = 'GET_FULL_RECIPE_SUCCESS'
 const GET_FULL_RECIPE_FAILURE = 'GET_FULL_RECIPE_FAILURE'
+const CLEAR_RECIPES = 'CLEAR_RECIPES'
 
 const data = require('./sales')
 
@@ -246,6 +247,13 @@ export function findRecipes(data) {
 
             })
 
+    }
+}
+
+export function clearRecipes(){
+    console.log("here")
+       return {
+        type: CLEAR_RECIPES,
     }
 }
 

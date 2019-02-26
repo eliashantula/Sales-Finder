@@ -18,7 +18,7 @@ const initialState = {
 };
 
 export default function groceryItem(state = initialState, Action) {
-
+console.log(Action.type, "here")
     switch (Action.type) {
         case "GET_MEATS":
             return {
@@ -46,7 +46,6 @@ export default function groceryItem(state = initialState, Action) {
             let quant = Action.data.quantity
             let product = Action.data.item
             let company = Action.data.company
-            let id = Action.data.id
             let price = parseFloat(Action.data.price)
             let sum = state.total + (price * amount)
             sum = (sum * 1000).toFixed();
@@ -306,7 +305,7 @@ export default function groceryItem(state = initialState, Action) {
             }
 
         case "GET_RECIPE_SUCCESS":
-        console.log(Action.data)
+           
 
             return {
                 ...state,
@@ -321,25 +320,34 @@ export default function groceryItem(state = initialState, Action) {
                 error: Action.error
             }
 
-         case "GET_FULL_RECIPE_REQUEST":
-         return {
-         	...state,
-         	isFetching: true,
-         	error: null
-         }
+        case "GET_FULL_RECIPE_REQUEST":
+            return {
+                ...state,
+                isFetching: true,
+                error: null
+            }
 
-         case "GET_FULL_RECIPE_SUCCESS":
-         return {
-         	...state,
-         	fullRecipes: [...state.fullRecipes, Action.data]
-         }
+        case "GET_FULL_RECIPE_SUCCESS":
+            return {
+                ...state,
+                fullRecipes: [...state.fullRecipes, Action.data]
+            }
 
-         case "GET_FULL_RECIPE_FAILURE":
-         return {
-         	...state,
-         	isFetching: false,
-         	error: Action.error
-         }
+        case "GET_FULL_RECIPE_FAILURE":
+            return {
+                ...state,
+                isFetching: false,
+                error: Action.error
+            }
+
+        case "CLEAR_RECIPES":
+
+        console.log("here")
+ 
+            return {
+                ...state,
+                recipes: []
+            }
 
         default:
 
