@@ -16,7 +16,7 @@ class RecipeInfo extends Component {
         const { recipes, getRecipes,fullRecipes } = this.props
         return (
 
-            <RecipePreview recipes={recipes} getFullRecipesInfo={getFullRecipes} fullRecipe={fullRecipes}/>
+            <RecipePreview recipes={recipes} getFullRecipesInfo={getRecipes} fullRecipe={fullRecipes}/>
 
 
         )
@@ -50,6 +50,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
 return {
 	getRecipes: (e) =>{
+	console.log(e.target.value)
     e.preventDefault()
      dispatch(getFullRecipes(e.target.value))
 

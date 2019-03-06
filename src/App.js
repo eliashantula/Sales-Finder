@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import './App.css';
 
 import FoodNav from './nav'
-
+import {withCookies} from 'react-cookie'
 import MeatContainer from './meatcontainer'
 import VegetableContainer from './vegetablecontainer'
 import DairyContainer from './dairycontainer'
 import DrinkContainer from './drinkcontainer'
-
+import {connect} from 'react-redux'
 import {
   BrowserRouter as Router,
   Route, Switch
 } from 'react-router-dom'
 import { Jumbotron, Button } from 'reactstrap';
-
+import {getCookies} from './actions'
 
 
 const home = (props) => {
@@ -26,7 +26,7 @@ return (
         <hr className="my-2" />
 
         <p className="lead">
-          <Button color="primary">Select Stores</Button>
+          <Button color="primary">Select Stores <i>(Coming soon)</i></Button>
         </p>
       </Jumbotron>
     </div>
@@ -55,7 +55,7 @@ class App extends Component {
          <div className="navigation" style={{position: "sticky",
   top: "0", zIndex: "9"}}>
 
-        <FoodNav />
+        <FoodNav cookies={this.props.cookies}/>
         
         </div>
 
@@ -76,4 +76,18 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch)=>{
+
+return {
+getCookies: ()=>{
+
+dispatch(getCookies())
+
+}
+
+}
+
+}
+
+
+export default connect(null, mapDispatchToProps)(App);

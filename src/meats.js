@@ -13,14 +13,14 @@ export default class MeatItems extends Component {
   	const {items} = this.props
  
     return (
-    <div className="carn" style={{backgroundImage: `url(${meat})`, width: "100%", height: "800px"}}>
+    <div className="carn" style={{backgroundImage: `url(${meat})`, width: "100%", height: "1200px"}}>
 
       <Container className="product">
       <Row>
-      {items.map(item=>{
+      {items.map((item,i)=>{
       	return (
 
-      		<ItemInfo item={item}/>
+      		<ItemInfo item={item} key={i}/>
 
 
 

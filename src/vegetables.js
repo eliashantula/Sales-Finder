@@ -9,7 +9,7 @@ export default class VegetableItems extends Component {
   	const {items} = this.props
 
     return (
-    <div className="veg" style={{backgroundImage: `url(${vegetable})`, width: "100%", height: "800px"}}>
+    <div className="veg" style={{height: "1300px", backgroundImage: `url(${vegetable})`, width: "100%", backgroundSize: "cover"}}>
 
       <Container className="product" >
       <Row>

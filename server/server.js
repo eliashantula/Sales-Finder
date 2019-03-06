@@ -7,11 +7,78 @@ const recipeDetailUrl = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi
 require('isomorphic-fetch')
 const express = require('express');
 const app = express();
+const cookieParser = require('cookie-parser')
+const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
+const { urlencoded, json } = require('body-parser')
+const session = require('express-session')
+const models = require('./models')
+const Cart = mongoose.model('Cart')
+
+
+
+
+/*const savedRecipeSchema = new mongoose.Schema({
+    title: { type: String },
+    instructions: {type: String},
+    ingredients: [{type: String}]
+
+})
+
+
+const savedIngredientSchema = new mongoose.Schema({
+    ingredients: [{ type: String }]
+
+})
+
+
+
+const User = mongoose.model('User', userSchema)
+const Recipe = mongoose.model('Recipe', savedRecipeSchema)
+const Ingredient = mongoose.model('Ingredient', savedIngredientSchema)
+*/
+  app.use(cookieParser())
+app.use(
+session({
+  secret: '11df23',
+  resave: false,
+  saveUninitialized: true,
+  cookie:{maxAge: 6000}
+})
+
+  )
+
+app.use(urlencoded({ extended: true }))
+
+app.use((req, res, next) => {
+  res.locals.session = req.session;
+  
+  next();
+});
+
+
+
 app.set('port', (process.env.PORT || 3001));
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'));
 }
 
+app.use((req,res,next)=> {
+
+if (mongoose.connection.readyState){
+  next()
+} else {
+  require('./mongo')().then(()=> next())
+
+}
+
+
+
+
+})
+app.get('/', (req,res,next)=>{
+  res.send("hi")
+})
 function checkStatus(response) {
     // If response not okay, throw an error
     if (!response.ok) {
@@ -29,11 +96,74 @@ function parseJSON(response) {
 }
 
 
+app.get('/getrecipe', async (req, res, next) => {
+    const recipes = await Recipe.find({}).exec()
+    res.json(recipes)
 
-app.get('/api/recipe/:ingred', (req, res, next) => {
-       let string = req.params.ingred
-console.log(string)
 
+})
+
+app.post('/saverecipe', async (req, res, next) => {
+    const recipeToBeCreated = req.body
+    const recipe = await Recipe.create(recipeToBeCreated)
+    res.status(201).json(recipe)
+
+
+})
+
+
+app.post('/saveingredient', async (req, res, next) => {
+    const ingredients = req.body
+    const savedIngredients = await Ingredient.create(ingredients)
+
+})
+
+
+app.get('/ingredient', async (req, res, next) => {
+    const savedingredients = await Ingredient.find({}).exec()
+    res.json(savedingredients)
+
+
+})
+
+app.get('/mongotest', (req,res,next) => {
+
+Cart.find({}).then((response)=>{
+ res.send(response)
+})
+
+
+
+
+})
+
+
+app.post('/ingredientselection', (req,res,next)=>{
+
+
+
+
+
+})
+
+app.get('/api/recipe/:ingred', async (req, res, next) => {
+    let string = req.params.ingred
+    let user =   {shopperID: req.sessionID}
+    
+    if (req.session.visited) {
+    Cart.findOneAndUpdate(req.sessionID, {items: string}).then((cart)=>{
+      console.log(cart)
+    })
+    } else {
+      req.session.visited = true 
+
+      Cart.create({items: string, ShopperID: req.sessionID}).then((cart)=>{
+        console.log(cart)
+      })
+     
+    }
+
+  
 
     fetch(`${baseUrl}${string}`, {
             method: 'GET',
@@ -45,11 +175,11 @@ console.log(string)
         .then(checkStatus)
         .then(parseJSON)
         .then((json) => {
-        let newResult = json.map(recipe=>{
-          return {id: recipe.id, image: recipe.image, title: recipe.title}
+            let newResult = json.map(recipe => {
+                return { id: recipe.id, image: recipe.image, title: recipe.title }
 
-        })
-        console.log(newResult)
+            })
+
             res.json(newResult)
 
         })
@@ -62,7 +192,6 @@ console.log(string)
 
 app.get('/api/fullrecipe/:id', (req, res, next) => {
     let recipeId = req.params.id
-    console.log(recipeDetailUrl+recipeId+"/information")
     fetch(`${recipeDetailUrl}${recipeId}/information`, {
             method: 'GET',
             headers: {
@@ -72,11 +201,10 @@ app.get('/api/fullrecipe/:id', (req, res, next) => {
         .then(checkStatus)
         .then(parseJSON)
         .then((json) => {
-        let newResult = json.map(recipe=>{
-          return {ingredients: recipe.extendedIngredients, instructions: instructions}
+            let newResult = { ingredients: json.extendedIngredients, instructions: json.instructions }
 
-        })
-        console.log(newResult)
+
+            console.log(newResult)
             res.json(newResult)
         }).catch((error) => {
             next(error)

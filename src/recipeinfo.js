@@ -1,16 +1,17 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
+import { Button } from 'reactstrap'
+let RecipeSnapshot = ({ recipe, details }) => {
 
-let RecipeSnapshot = ({recipe}) => {
 
 
-
-return (
-<div className="individualRecipe">
+    return (
+        <div className="individualRecipe">
 <img src={recipe.image} alt="fooditem" style={{width: "100%", height: "auto"}}/>
 <h5 className="recipeTitle">{recipe.title}</h5> 
+<Button className="checkRecipeDetails" value={recipe.id} color="primary" type="submit" onClick={details}>View Recipe</Button>
 </div>
 
-	)
+    )
 
 
 
@@ -26,14 +27,14 @@ export default class RecipePreview extends Component {
 
 
 
-render(){
-const {recipes, getFullRecipesInfo } = this.props
+    render() {
+        const { recipes, getFullRecipesInfo } = this.props
 
-return (
-<div className="recipePreview">
+        return (
+            <div className="recipePreview">
 {recipes.map((recipe,i)=>{
 
-return <RecipeSnapshot recipe = {recipe} key={i}/>
+return <RecipeSnapshot recipe = {recipe} key={i} details = {getFullRecipesInfo}/>
 
 
 })}
@@ -42,11 +43,11 @@ return <RecipeSnapshot recipe = {recipe} key={i}/>
 </div>
 
 
-	)
+        )
 
 
 
-}
+    }
 
 
 }

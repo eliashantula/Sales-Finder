@@ -54,9 +54,7 @@ class ShopButton extends Component {
 					>
 						Add To List
 					</Button>
-					<Button color="info" size="sm">
-						Suggest Recipe
-					</Button>
+					
 				</FormGroup>
 			</Form>
         );

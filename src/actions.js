@@ -17,7 +17,8 @@ const GET_FULL_RECIPE_REQUEST = 'GET_FULL_RECIPE_REQUEST'
 const GET_FULL_RECIPE_SUCCESS = 'GET_FULL_RECIPE_SUCCESS'
 const GET_FULL_RECIPE_FAILURE = 'GET_FULL_RECIPE_FAILURE'
 const CLEAR_RECIPES = 'CLEAR_RECIPES'
-
+const GET_COOKIES = 'GET_COOKIES'
+const CLEAR_CHECKS = 'CLEAR_CHECKS'
 const data = require('./sales')
 
 let food;
@@ -257,3 +258,15 @@ export function clearRecipes(){
     }
 }
 
+export function getCookies(){
+    return {
+        type: GET_COOKIES
+    }
+}
+
+
+export function clearAllChecks(){
+    return {
+        type: CLEAR_CHECKS
+    }
+}
