@@ -11,12 +11,12 @@ import { connect } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Jumbotron, Button } from "reactstrap";
 import { getCookies } from "./actions";
-import foodmoney from './foodmoney.jpg'
+import foodmoney from "./foodmoney.jpg";
 
 const home = props => {
   return (
     <div>
-      <Jumbotron className="jumbo" style={{marginBottom: "0px"}}>
+      <Jumbotron className="jumbo" style={{ marginBottom: "0px" }}>
         <h1 className="display-3">Hello, Sales!</h1>
         <p className="lead">
           Choose your items and check out some money saving recipes
@@ -29,8 +29,14 @@ const home = props => {
           </Button>
         </p>
       </Jumbotron>
-      <div className="introBack" style={{height: "720px",backgroundImage: `url(${foodmoney})`, backgroundSize: "cover"}}>
-      </div>
+      <div
+        className="introBack"
+        style={{
+          height: "720px",
+          backgroundImage: `url(${foodmoney})`,
+          backgroundSize: "cover"
+        }}
+      />
     </div>
   );
 };
