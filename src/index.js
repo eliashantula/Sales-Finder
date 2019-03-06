@@ -9,16 +9,17 @@ import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import groceryItem from "./reducers";
 
-let persistedState = localStorage.getItem("reduxState")
+let persistedState = localStorage.getItem("initialState")
 
-	? JSON.parse(localStorage.getItem("reduxState"))
+	? JSON.parse(localStorage.getItem("initialState"))
 	: undefined;
 let store = createStore(groceryItem, persistedState, applyMiddleware(thunk));
 
-let saveLocal = store.subscribe(() => {
-	localStorage.setItem("reduxState", JSON.stringify(store.getState()));
+store.subscribe(() => {
+	localStorage.setItem('initialState', JSON.stringify(store.getState()));
 });
-saveLocal();
+
+
 ReactDOM.render(
 	<Provider store={store}>
 		<App />

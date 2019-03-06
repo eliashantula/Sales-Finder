@@ -4,23 +4,20 @@ import { getDrinks } from "./actions";
 import Drinks from "./drinks";
 
 class DrinkContainer extends Component {
-
-
 	componentDidMount() {
 		this.props.getDrinks();
 	}
 
 	render() {
 		const { drinks } = this.props;
-		console.log(drinks)
+		console.log(drinks);
 		return <Drinks drinks={drinks} />;
 	}
 }
 
 const mapStateToProps = state => {
 	return {
-		drinks: state.drinks,
-		
+		drinks: state.drinks
 	};
 };
 
@@ -31,4 +28,7 @@ const mapDispatchToProps = dispatch => {
 		}
 	};
 };
-export default connect(mapStateToProps, mapDispatchToProps)(DrinkContainer);
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(DrinkContainer);
