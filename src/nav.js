@@ -2,7 +2,7 @@ import React from "react";
 import { Nav } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import CartContainer from "./cartcontainer";
-import { connect } from "react-redux";
+
 const sections = ["Vegetables", "Dairy", "Meats", "Drinks-Snacks"];
 
 const Navs = ({ section, info }) => {
