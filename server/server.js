@@ -14,7 +14,7 @@ const { urlencoded, json } = require('body-parser')
 const session = require('express-session')
 const models = require('./models')
 const Cart = mongoose.model('Cart')
-
+const path = require('path')
 
 
 
@@ -37,7 +37,9 @@ const User = mongoose.model('User', userSchema)
 const Recipe = mongoose.model('Recipe', savedRecipeSchema)
 const Ingredient = mongoose.model('Ingredient', savedIngredientSchema)
 */
-  app.use(cookieParser())
+
+
+app.use(cookieParser())
 app.use(
 session({
   secret: '11df23',
@@ -60,7 +62,7 @@ app.use((req, res, next) => {
 
 app.set('port', (process.env.PORT || 3001));
 if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('client/build'));
+    app.use(express.static('../build'));
 }
 
 app.use((req,res,next)=> {
@@ -76,9 +78,7 @@ if (mongoose.connection.readyState){
 
 
 })
-app.get('/', (req,res,next)=>{
-  res.send("hi")
-})
+
 function checkStatus(response) {
     // If response not okay, throw an error
     if (!response.ok) {
@@ -215,6 +215,9 @@ app.get('/api/fullrecipe/:id', (req, res, next) => {
 
 })
 
+app.get('*', (req,res) =>{
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
 
 //JSON properties to extract: extendedIngredients,instructions,image
 //recipeSearch extract : let newResult = result.map(recipe=>{

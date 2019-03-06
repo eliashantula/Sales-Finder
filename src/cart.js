@@ -16,12 +16,17 @@ import RecipeButton from "./recipebutton";
 import RecipeInfo from "./recipeinfocontainer";
 import ClearCheckButton from "./clearcheckbutton";
 const ItemAmount = ({ amount }) => {
+	let item;
+	if (amount === 1){
+		item = "item"
+	}
+	else {item = "items"}
 	return (
 		<p
 			className="h7"
 			style={{ color: "white", fontSize: "11px", margin: "0%" }}
 		>
-			{amount} items in cart
+			{amount} {item} in cart
 		</p>
 	);
 };
