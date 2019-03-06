@@ -38,7 +38,7 @@ const Recipe = mongoose.model('Recipe', savedRecipeSchema)
 const Ingredient = mongoose.model('Ingredient', savedIngredientSchema)
 */
 
-
+app.use(express.static(path.join(__dirname, '/../build')));
 app.use(cookieParser())
 app.use(
 session({
@@ -63,8 +63,13 @@ app.use((req, res, next) => {
 app.set('port', (process.env.PORT || 3001));
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('../build'));
+    app.get('*', (req, res) => {
+    res.sendfile(path.join(__dirname = '/../build/index.html'));
+  })
 }
-
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/../public/index.html'));
+})
 app.use((req,res,next)=> {
 
 if (mongoose.connection.readyState){
@@ -215,9 +220,7 @@ app.get('/api/fullrecipe/:id', (req, res, next) => {
 
 })
 
-app.get('*', (req,res) =>{
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
-});
+ 
 
 //JSON properties to extract: extendedIngredients,instructions,image
 //recipeSearch extract : let newResult = result.map(recipe=>{
