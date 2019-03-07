@@ -66,12 +66,12 @@ app.use((req, res, next) => {
 });
 
 app.set("port", process.env.PORT || 3001);
-if (process.env.NODE_ENV === "production") {
+/*if (process.env.NODE_ENV === "production") {
     app.use(express.static("build"));
     app.get("*", (req, res) => {
         res.sendfile(path.resolve("build", "index.html"));
     });
-}
+}*/
 
 function checkStatus(response) {
     // If response not okay, throw an error
