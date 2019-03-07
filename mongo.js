@@ -1,5 +1,5 @@
 let mongoose = require('mongoose');
-let env = process.env.MONGODB_URI || 'development'
+let env = process.env.NODE_ENV || 'development'
 let config = require('./config/mongo')[env]
 
 
