@@ -1,27 +1,26 @@
 {
-  "name": "client",
-  "version": "0.1.0",
-  "private": true,
-  "proxy": "http://127.0.0.1:3001",
-  "dependencies": {
-    "bootstrap": "^4.0.0-alpha.6",
-    "dotenv": "^6.2.0",
-    "form-serialize": "^0.7.2",
-    "react": "^16.5.1",
-    "react-cookie": "^3.0.8",
-    "react-dom": "^16.5.1",
-    "react-redux": "^5.0.7",
-    "react-router-dom": "^4.3.1",
-    "react-scripts": "1.1.5",
-    "reactstrap": "^6.4.0",
-    "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0"
-  },
+  "name": "Sales-Finder ",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-     "postinstall": "react-scripts build"
-  }
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.3",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^6.2.0",
+    "es6-promise": "^4.2.6",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "isomorphic-fetch": "^2.2.1",
+    "mongoose": "^5.4.17"
+  },
+  "engines": {
+    "node": "8.9.0"
+}
 }
