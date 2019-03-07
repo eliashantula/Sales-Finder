@@ -54,7 +54,7 @@ class App extends Component {
           <div className="wrapper">
             <div
               className="navigation"
-              style={{ position: "sticky", top: "0", zIndex: "9" }}
+              style={{ position: "-webkit-sticky", position: "sticky", top: "0", zIndex: "9" }}
             >
               <FoodNav cookies={this.props.cookies} />
             </div>
