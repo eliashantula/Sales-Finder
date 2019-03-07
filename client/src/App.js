@@ -12,12 +12,15 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Jumbotron, Button } from "reactstrap";
 import { getCookies } from "./actions";
 import foodmoney from "./foodmoney.jpg";
+import beta from './beta-stamp.png'
 
 const home = props => {
   return (
     <div>
       <Jumbotron className="jumbo" style={{ marginBottom: "0px" }}>
+        
         <h1 className="display-3">Hello, Sales!</h1>
+        <div><img src={beta} alt="beta"/></div>
         <p className="lead">
           Choose your items and check out some money saving recipes
         </p>
