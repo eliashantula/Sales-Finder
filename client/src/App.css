@@ -202,7 +202,9 @@ html {
   flex-flow: row wrap;
   justify-content: center;
 }
-
+.individualRecipe {
+  flex: 0 0 40%
+}
 .recipeInfo {
   flex: 0 0 30%;
 }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 
 import FoodNav from "./nav";
-import { withCookies } from "react-cookie";
+
 import MeatContainer from "./meatcontainer";
 import VegetableContainer from "./vegetablecontainer";
 import DairyContainer from "./dairycontainer";
@@ -12,15 +12,16 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Jumbotron, Button } from "reactstrap";
 import { getCookies } from "./actions";
 import foodmoney from "./foodmoney.jpg";
-import beta from './beta-stamp.png'
+import beta from "./beta-stamp.png";
 
 const home = props => {
   return (
     <div>
       <Jumbotron className="jumbo" style={{ marginBottom: "0px" }}>
-        
         <h1 className="display-3">Hello, Sales!</h1>
-        <div><img src={beta} alt="beta"/></div>
+        <div>
+          <img src={beta} alt="beta" />
+        </div>
         <p className="lead">
           Choose your items and check out some money saving recipes
         </p>
@@ -54,7 +55,12 @@ class App extends Component {
           <div className="wrapper">
             <div
               className="navigation"
-              style={{ position: "-webkit-sticky", position: "sticky", top: "0", zIndex: "9" }}
+              style={{
+                position: "-webkit-sticky",
+                position: "sticky",
+                top: "0",
+                zIndex: "9"
+              }}
             >
               <FoodNav cookies={this.props.cookies} />
             </div>
