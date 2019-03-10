@@ -56,7 +56,6 @@ class App extends Component {
             <div
               className="navigation"
               style={{
-                position: "-webkit-sticky",
                 position: "sticky",
                 top: "0",
                 zIndex: "9"
