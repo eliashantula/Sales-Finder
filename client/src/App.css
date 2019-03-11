@@ -209,7 +209,12 @@ html {
   justify-content: center;
 }
 .individualRecipe {
-  flex: 0 0 40%
+  border: 1px solid black;
+
+  flex: 0 0 35%;
+  margin-left: 2px;
+  border-radius: 10px;
+  margin-bottom: 2px;
 
 }
 .recipeInfo {

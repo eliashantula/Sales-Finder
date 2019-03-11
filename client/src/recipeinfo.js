@@ -6,9 +6,9 @@ let RecipeSnapshot = ({ recipe, details }) => {
 
     return (
         <div className="individualRecipe">
-<img src={recipe.image} alt="fooditem" style={{width: "100%", height: "auto"}}/>
+<img src={recipe.image} alt="fooditem" style={{width: "100%", height: "auto", borderRadius: "10px"}}/>
 <h5 className="recipeTitle">{recipe.title}</h5> 
-<Button className="checkRecipeDetails" value={recipe.id} color="primary" type="submit" onClick={details}>View Recipe</Button>
+<Button className="checkRecipeDetails" size="sm" value={recipe.id} color="primary" type="submit" onClick={details}>View Recipe</Button>
 </div>
 
     )
