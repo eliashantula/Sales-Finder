@@ -169,7 +169,7 @@ html {
     justify-content: center;
     height: 100%;
    /* flex-flow: row nowrap;*/
-    position: "-webkit-sticky" !important;
+    position: fixed;
     top: 0;
   }
   .navigs {
