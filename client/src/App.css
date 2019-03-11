@@ -43,7 +43,7 @@ html {
 }
 
 .navigs {
-  flex: 0 0 10%;
+ 
   color: white;
 }
 
@@ -168,7 +168,9 @@ html {
   }
   .navigation {
     justify-content: center;
-    flex-flow: row nowrap;
+    height: 100%;
+   /* flex-flow: row nowrap;*/
+    position: "-webkit-sticky" !important;
   }
   .navigs {
     flex: 0 0 12%;
