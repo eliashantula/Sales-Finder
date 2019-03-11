@@ -8,7 +8,7 @@ let RecipeSnapshot = ({ recipe, details }) => {
         <div className="individualRecipe">
 <img src={recipe.image} alt="fooditem" style={{width: "100%", height: "auto", borderRadius: "10px"}}/>
 <h5 className="recipeTitle">{recipe.title}</h5> 
-<Button className="checkRecipeDetails" size="sm" value={recipe.id} color="primary" type="submit" onClick={details}>View Recipe</Button>
+<Button className="checkRecipeDetails" size="sm" value={recipe.id} color="primary" type="submit" onClick={details} style={{marginLeft: "10px"}}>View Recipe</Button>
 </div>
 
     )

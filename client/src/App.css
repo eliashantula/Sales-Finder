@@ -158,7 +158,9 @@ html {
     opacity: 1;
     margin: 0px;
   }
-
+.recipeTitle {
+  font-size: 10px;
+}
   .delete {
     .underline-on-hover:hover {
       text-decoration: underline;
@@ -181,15 +183,17 @@ html {
     margin-left: auto;
   }
 }
-.carn {
- 
- padding-top: 10%;
-}
+
 .modals {
   display: flex;
   flex-flow: row nowrap;
   flex: 0 0 95%;
   justify-content: flex-start;
+}
+
+.carn {
+ 
+ padding-top: 10%;
 }
 
 .modal-title {
@@ -211,7 +215,7 @@ html {
 .individualRecipe {
   border: 1px solid black;
 
-  flex: 0 0 35%;
+  flex: 0 0 40%;
   margin-left: 2px;
   border-radius: 10px;
   margin-bottom: 2px;
@@ -220,6 +224,8 @@ html {
 .recipeInfo {
   flex: 0 0 30%;
 }
+
+
 @media only screen and (min-width: 768px) {
   .itemInfo {
     flex: 0 0 26%;
@@ -239,14 +245,29 @@ html {
 
     padding: 1%;
   }
-
+.carn {
+ 
+ padding-top: 10%;
+}
   .recipePreview {
     display: flex;
     flex: 0 0 100%;
     flex-flow: row wrap;
+    justify-content: center;
   }
+.individualRecipe {
+  border: 1px solid black;
 
+  flex: 0 0 28%;
+  margin-left: 2px;
+  border-radius: 10px;
+  margin-bottom: 2px;
+
+}
   .recipeInfo {
     flex: 0 0 20%;
   }
+  .recipeTitle {
+  font-size: 10px;
+}
 }
