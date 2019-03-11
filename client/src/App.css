@@ -167,7 +167,7 @@ html {
   }
   .navigation {
     justify-content: center;
-    height: 100%;
+    
    /* flex-flow: row nowrap;*/
     position: fixed;
     top: 0;
