@@ -1,26 +1,18 @@
 import React, { Component } from "react";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import { getMeats } from "./actions";
-import MeatItems from './meats'
+import MeatItems from "./meats";
 
 class MeatContainer extends Component {
-	
-
-  componentDidMount(){
-  this.props.getMeats()
-
-
-
-
+  componentDidMount() {
+    this.props.getMeats();
   }
 
-
-	render() {
-		const { getMeats, meats, onSubmit } = this.props;
-		return <MeatItems items={meats} onSubmit={onSubmit} />;
-	}
+  render() {
+    const { getMeats, meats, onSubmit } = this.props;
+    return <MeatItems items={meats} onSubmit={onSubmit} />;
+  }
 }
-
 
 const mapStateToProps = state => {
   return {
@@ -31,15 +23,14 @@ const mapStateToProps = state => {
 //allowing container to access action calls
 const mapDispatchToProps = dispatch => {
   return {
-  	getMeats: ()=>{
-  
-  		dispatch(getMeats())
-  	}
-
-
-  }
- 
+    getMeats: () => {
+      dispatch(getMeats());
+    }
+  };
 };
 
 //connecting to the store
-export default connect(mapStateToProps, mapDispatchToProps)(MeatContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MeatContainer);

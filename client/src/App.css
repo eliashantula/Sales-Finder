@@ -117,23 +117,24 @@ html {
   flex-flow: row wrap;
   flex: 0 0 100%;
   border-radius: 25px;
-  border: 2px solid red;
+  border: 1px solid white;
   opacity: 0.8;
   background-color: black;
-  margin-top: 10%;
+  /*margin-top: 10%;*/
+  padding-top: 10px;
 }
 
 .itemInfo {
   flex: 0 0 100%;
 }
 
-.wrapper {
+/*.wrapper {
   display: grid;
 
   grid-gap: 0em;
   min-height: 100%;
   grid-template-areas: navigation navigation navigation navigation navigation navigation;
-}
+}*/
 .description {
   text-align: start;
 }
@@ -180,7 +181,10 @@ html {
     margin-left: auto;
   }
 }
-
+.carn {
+ 
+ padding-top: 10%;
+}
 .modals {
   display: flex;
   flex-flow: row nowrap;

@@ -52,7 +52,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <div className="wrapper">
+         
             <div
               className="navigation"
               style={{
@@ -72,7 +72,7 @@ class App extends Component {
               <Route exact path="/dairy" component={DairyContainer} />
               <Route exact path="/drinks-snacks" component={DrinkContainer} />
             </Switch>
-          </div>
+         
         </div>
       </Router>
     );

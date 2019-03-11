@@ -14,7 +14,8 @@ export default class VegetableItems extends Component {
           height: "1325px",
           backgroundImage: `url(${vegetable})`,
           width: "100%",
-          backgroundSize: "cover"
+          backgroundSize: "cover",
+          paddingTop: "10%"
         }}
       >
         <Container className="product">

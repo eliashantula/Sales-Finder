@@ -17,7 +17,8 @@ export default class DairyItems extends Component {
 					backgroundImage: `url(${picture})`,
 					padding: "0%",
 					backgroundRepeat: "no-repeat",
-					backgroundSize: "cover"
+					backgroundSize: "cover", 
+					paddingTop: "10%"
 				}}
 			>
 				<Container className="product">
