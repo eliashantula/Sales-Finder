@@ -169,8 +169,11 @@ html {
     justify-content: center;
     
    /* flex-flow: row nowrap;*/
-    position: fixed;
-    top: 0;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+    top: 0px;
   }
   .navigs {
     flex: 0 0 12%;

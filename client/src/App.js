@@ -52,27 +52,25 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-         
-            <div
-              className="navigation"
-              style={{
-                position: "sticky",
-                top: "0",
-                zIndex: "9"
-              }}
-            >
-              <FoodNav cookies={this.props.cookies} />
-            </div>
+          <div
+            className="navigation"
+            style={{
+              position: "sticky",
+              top: "0px",
+              zIndex: "9"
+            }}
+          >
+            <FoodNav cookies={this.props.cookies} />
+          </div>
 
-            <Switch>
-              <Route exact path="/" component={home} />
+          <Switch>
+            <Route exact path="/" component={home} />
 
-              <Route exact path="/meats" component={MeatContainer} />
-              <Route exact path="/vegetables" component={VegetableContainer} />
-              <Route exact path="/dairy" component={DairyContainer} />
-              <Route exact path="/drinks-snacks" component={DrinkContainer} />
-            </Switch>
-         
+            <Route exact path="/meats" component={MeatContainer} />
+            <Route exact path="/vegetables" component={VegetableContainer} />
+            <Route exact path="/dairy" component={DairyContainer} />
+            <Route exact path="/drinks-snacks" component={DrinkContainer} />
+          </Switch>
         </div>
       </Router>
     );

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import Sidebar from "react-sidebar";
 import carts from "./cart1.png";
 import {
 	Button,
@@ -129,7 +129,8 @@ class Cart extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			modal: false
+			modal: false,
+			sidebarOpen: true
 		};
 		this.toggle = this.toggle.bind(this);
 		this.testing = this.testing.bind(this);
