@@ -149,13 +149,43 @@ html {
 .recipeIngredients {
 
 flex: 0 0 100%;
-justify-content: c;
+
 
 
 
 
 
 }
+
+.fullRecipeIngredients {
+display: flex;
+flex: 0 0 100%;
+flex-flow: row nowrap;
+justify-content: flex-end;
+border: 1px solid black;
+align-items: flex-end;
+
+
+
+}
+
+
+
+.addMissingIngredient {
+  flex: 0 0 70%;
+  font-size: 10px;
+ 
+
+}
+.addMissingIngredientCheck {
+
+  flex: 0 0 30%;
+
+
+
+}
+
+
 @media only screen and (max-width: 767px) {
   .itemInfo {
     flex: 0 0 80%;

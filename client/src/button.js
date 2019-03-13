@@ -25,7 +25,7 @@ class ShopButton extends Component {
 						type="number"
 						name="amount"
 						placeholder={0}
-						style={{backgroundColor: "black",color: "white", border: "1px solid white", lineHeight: "9px", fontSize: "15px", marginLeft: "0px", marginRight: "0px"}}
+						style={{backgroundColor: "black",color: "white", border: "1px solid white", lineHeight: "9px", fontSize: "13px", marginLeft: "0px", marginRight: "0px"}}
 						min="0"
 						max="999"
 						

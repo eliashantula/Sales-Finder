@@ -10,7 +10,7 @@ class DrinkContainer extends Component {
 
 	render() {
 		const { drinks } = this.props;
-		console.log(drinks);
+	
 		return <Drinks drinks={drinks} />;
 	}
 }

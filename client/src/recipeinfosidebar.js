@@ -11,18 +11,20 @@ import {
 	Input
 } from "reactstrap";
 
-let FullIngredients = ({ ingredient, keys }) => {
+let FullIngredients = ({ ingredient, keys, amount, unit }) => {
 	return (
-	
-			<li>Add to List <Input type="checkbox" /> {ingredient}
+		<div className="fullRecipeIngredients">
+			<li className="addMissingIngredient">{amount} {unit} {ingredient}</li>
+
 			<Label
-			className="addMissingIngredient"
-			check
-			style={{ fontSize: "8px", paddingTop: "5px" }}
-			key={keys}
-		>
-		</Label>
-		</li>
+				className="addMissingIngredientCheck"
+				style={{ fontSize: "8px", paddingTop: "0px" }}
+				key={keys}
+			>
+				Add to List
+				
+			</Label>
+		</div>
 	);
 };
 
@@ -76,15 +78,20 @@ class RecipeInfoPopUp extends Component {
 							<div className="recipeIngredients">
 								<Form>
 									<FormGroup>
-										<ul style={{ listStyle: "none" }}>
+										<ul
+											style={{ listStyle: "none" }}
+											className="recipeIngredientList"
+										>
 											{fullRecipe.ingredients.map(
 												(ingredient, i) => {
 													return (
 														<FullIngredients
 															ingredient={
-																ingredient
+																ingredient.name
 															}
 															key={i}
+															amount={ingredient.amount}
+															unit = {ingredient.unit}
 														/>
 													);
 												}

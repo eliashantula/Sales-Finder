@@ -285,7 +285,7 @@ export default function groceryItem(state = initialState, Action) {
 
 		case "GET_FULL_RECIPE_SUCCESS":
 		  let individualIngredients = Action.data.ingredients.map(ingredient=>{
-		  	return `${ingredient.amount} ${ingredient.unit} ${ingredient.name} `
+		  	return {amount: ingredient.amount,  unit: ingredient.unit,name: ingredient.name}
 		  })
 
 			return {
