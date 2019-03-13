@@ -69,6 +69,7 @@ html {
   font-weight: bold;
   text-align: start;
   padding-top: 8px;
+  margin: auto;
 }
 
 .shoppingButton {
@@ -90,7 +91,7 @@ html {
 }
 
 .quantityUpdate {
-  flex: 0 0 30%;
+  flex: 0 0 32%;
   margin-right: auto;
 }
 .deleteButton {
@@ -138,6 +139,23 @@ html {
   text-align: start;
 }
 
+.recipeDetails {
+  display: flex;
+  flex: 0 0 100%;
+  flex-flow: row wrap ;
+
+}
+
+.recipeIngredients {
+
+flex: 0 0 100%;
+justify-content: c;
+
+
+
+
+
+}
 @media only screen and (max-width: 767px) {
   .itemInfo {
     flex: 0 0 80%;
@@ -145,6 +163,11 @@ html {
     background-color: black;
     font-size: 22px;
     padding-bottom: 10px;
+  }
+
+  .shoppingList {
+    font-size: 10px;
+    margin: auto;
   }
 
   .quantity {

@@ -103,7 +103,7 @@ const ListItem = ({
 						defaultValue={list.amount}
 						id={list.product}
 						onChange={onChange}
-						style={{ border: "0px", fontSize: "10px" }}
+						style={{ border: "0px", fontSize: "8px" }}
 					>
 						{options}
 					</Input>

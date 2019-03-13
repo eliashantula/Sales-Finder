@@ -4,8 +4,27 @@ import {
 	Button,
 	UncontrolledPopover,
 	PopoverHeader,
-	PopoverBody
+	PopoverBody,
+	Form,
+	FormGroup,
+	Label,
+	Input
 } from "reactstrap";
+
+let FullIngredients = ({ ingredient, keys }) => {
+	return (
+	
+			<li>Add to List <Input type="checkbox" /> {ingredient}
+			<Label
+			className="addMissingIngredient"
+			check
+			style={{ fontSize: "8px", paddingTop: "5px" }}
+			key={keys}
+		>
+		</Label>
+		</li>
+	);
+};
 
 class RecipeInfoPopUp extends Component {
 	constructor(props) {
@@ -22,14 +41,14 @@ class RecipeInfoPopUp extends Component {
 		});
 	}
 
-	testMe = (e) => {
-		e.preventDefault()
-		console.log(this.e.target)
-	}
+	testMe = e => {
+		e.preventDefault();
+		console.log(this.e.target);
+	};
 
 	render() {
 		const { id, title, onSubmit, fullRecipe } = this.props;
-		console.log(fullRecipe)
+		console.log(fullRecipe);
 		return (
 			<div>
 				<Button
@@ -44,7 +63,7 @@ class RecipeInfoPopUp extends Component {
 					View Recipe
 				</Button>
 				<UncontrolledPopover
-					style={{ border: "2px solid black", borderRadius: "10px" }}
+					style={{ border: "3px solid black", borderRadius: "10px" }}
 					trigger="legacy"
 					placement="bottom"
 					isOpen={this.state.popoverOpen}
@@ -52,8 +71,33 @@ class RecipeInfoPopUp extends Component {
 					toggle={this.toggle}
 				>
 					<PopoverHeader>{title}</PopoverHeader>
-					<PopoverBody><div className="recipeDetails"><div className="recipeIngredients">{fullRecipe.ingredients}</div><div className="recipeInstructions">{fullRecipe.instructions}</div>
-					</div></PopoverBody>
+					<PopoverBody>
+						<div className="recipeDetails">
+							<div className="recipeIngredients">
+								<Form>
+									<FormGroup>
+										<ul style={{ listStyle: "none" }}>
+											{fullRecipe.ingredients.map(
+												(ingredient, i) => {
+													return (
+														<FullIngredients
+															ingredient={
+																ingredient
+															}
+															key={i}
+														/>
+													);
+												}
+											)}
+										</ul>
+									</FormGroup>
+								</Form>
+							</div>
+							<div className="recipeInstructions">
+								{fullRecipe.instructions}
+							</div>
+						</div>
+					</PopoverBody>
 				</UncontrolledPopover>
 			</div>
 		);
