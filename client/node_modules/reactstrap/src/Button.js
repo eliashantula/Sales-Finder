@@ -1,21 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { mapToCssModules } from './utils';
+import { mapToCssModules, tagPropType } from './utils';
 
 const propTypes = {
   active: PropTypes.bool,
+  'aria-label': PropTypes.string,
   block: PropTypes.bool,
   color: PropTypes.string,
   disabled: PropTypes.bool,
   outline: PropTypes.bool,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  tag: tagPropType,
   innerRef: PropTypes.oneOfType([PropTypes.object, PropTypes.func, PropTypes.string]),
   onClick: PropTypes.func,
   size: PropTypes.string,
   children: PropTypes.node,
   className: PropTypes.string,
   cssModule: PropTypes.object,
+  close: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -44,8 +46,10 @@ class Button extends React.Component {
   render() {
     let {
       active,
+      'aria-label': ariaLabel,
       block,
       className,
+      close,
       cssModule,
       color,
       outline,
@@ -55,10 +59,17 @@ class Button extends React.Component {
       ...attributes
     } = this.props;
 
+    if (close && typeof attributes.children === 'undefined') {
+      attributes.children = <span aria-hidden>×</span>;
+    }
+
+    const btnOutlineColor = `btn${outline ? '-outline' : ''}-${color}`;
+
     const classes = mapToCssModules(classNames(
       className,
-      'btn',
-      `btn${outline ? '-outline' : ''}-${color}`,
+      { close },
+      close || 'btn',
+      close || btnOutlineColor,
       size ? `btn-${size}` : false,
       block ? 'btn-block' : false,
       { active, disabled: this.props.disabled }
@@ -68,6 +79,8 @@ class Button extends React.Component {
       Tag = 'a';
     }
 
+    const defaultAriaLabel = close ? 'Close' : null;
+
     return (
       <Tag
         type={(Tag === 'button' && attributes.onClick) ? 'button' : undefined}
@@ -75,6 +88,7 @@ class Button extends React.Component {
         className={classes}
         ref={innerRef}
         onClick={this.onClick}
+        aria-label={ariaLabel || defaultAriaLabel}
       />
     );
   }

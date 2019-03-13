@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Sidebar from "react-sidebar";
-import carts from "./cart1.png";
+
+import carts from "./list.png";
 import {
 	Button,
 	Modal,
@@ -26,7 +26,7 @@ const ItemAmount = ({ amount }) => {
 			className="h7"
 			style={{ color: "white", fontSize: "11px", margin: "0%" }}
 		>
-			{amount} {item} in cart
+			{amount} {item}
 		</p>
 	);
 };
@@ -109,10 +109,11 @@ const ListItem = ({
 					</Input>
 					<Button
 						type="submit"
+						color="white"
 						className="deleteButton"
 						style={{
 							fontSize: "8px",
-							backGroundColor: "white",
+							backGroundColor: "black",
 							border: "0px",
 							textAlign: "center"
 						}}
@@ -130,16 +131,19 @@ class Cart extends Component {
 		super(props);
 		this.state = {
 			modal: false,
-			sidebarOpen: true
+		
 		};
 		this.toggle = this.toggle.bind(this);
-		this.testing = this.testing.bind(this);
+		
+		
 	}
 	toggle() {
 		this.setState({
 			modal: !this.state.modal
 		});
 	}
+
+	
 
 	testing() {}
 

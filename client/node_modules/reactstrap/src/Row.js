@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { mapToCssModules } from './utils';
+import { mapToCssModules, tagPropType } from './utils';
 
 const propTypes = {
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  tag: tagPropType,
   noGutters: PropTypes.bool,
   className: PropTypes.string,
   cssModule: PropTypes.object,
+  form: PropTypes.bool
 };
 
 const defaultProps = {
@@ -20,13 +21,14 @@ const Row = (props) => {
     cssModule,
     noGutters,
     tag: Tag,
+    form,
     ...attributes
   } = props;
 
   const classes = mapToCssModules(classNames(
     className,
     noGutters ? 'no-gutters' : null,
-    'row'
+    form ? 'form-row' : 'row'
   ), cssModule);
 
   return (

@@ -6,7 +6,6 @@ const baseUrl =
     "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=1&ingredients=";
 const recipeDetailUrl =
     "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/";
-require("isomorphic-fetch");
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");

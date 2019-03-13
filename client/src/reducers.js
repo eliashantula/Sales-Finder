@@ -12,13 +12,12 @@ const initialState = {
 	ingredients: {},
 	checks: {},
 	recipeCheck: [],
-	fullRecipes: [],
+	fullRecipes: {},
 	isFetching: false,
 	error: null
 };
 
 export default function groceryItem(state = initialState, Action) {
-	
 	switch (Action.type) {
 		case "GET_MEATS":
 			return {
@@ -285,9 +284,13 @@ export default function groceryItem(state = initialState, Action) {
 			};
 
 		case "GET_FULL_RECIPE_SUCCESS":
+		  let individualIngredients = Action.data.ingredients.map(ingredient=>{
+		  	return `${ingredient.amount} ${ingredient.unit} ${ingredient.name} `
+		  })
+
 			return {
 				...state,
-				fullRecipes: [...state.fullRecipes, Action.data]
+				fullRecipes: {ingredients: individualIngredients, instructions: Action.data.instructions}
 			};
 
 		case "GET_FULL_RECIPE_FAILURE":
@@ -304,7 +307,6 @@ export default function groceryItem(state = initialState, Action) {
 			};
 
 		case "CLEAR_CHECKS":
-			console.log("here");
 			let newChecks = Object.keys(state.checks).reduce(
 				(updatedChecks, checked) => {
 					updatedChecks[checked] = { item: checked, check: false };

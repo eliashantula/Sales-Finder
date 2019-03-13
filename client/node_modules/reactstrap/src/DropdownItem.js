@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { mapToCssModules, omit } from './utils';
+import { mapToCssModules, omit, tagPropType } from './utils';
 
 const propTypes = {
   children: PropTypes.node,
   active: PropTypes.bool,
   disabled: PropTypes.bool,
   divider: PropTypes.bool,
-  tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+  tag: tagPropType,
   header: PropTypes.bool,
   onClick: PropTypes.func,
   className: PropTypes.string,
@@ -58,6 +58,7 @@ class DropdownItem extends React.Component {
 
   render() {
     const tabIndex = this.getTabIndex();
+    const role = tabIndex > -1 ? 'menuitem' : undefined;
     let {
       className,
       cssModule,
@@ -93,6 +94,7 @@ class DropdownItem extends React.Component {
         type={(Tag === 'button' && (props.onClick || this.props.toggle)) ? 'button' : undefined}
         {...props}
         tabIndex={tabIndex}
+        role={role}
         className={classes}
         onClick={this.onClick}
       />
