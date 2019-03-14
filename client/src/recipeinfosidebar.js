@@ -24,6 +24,7 @@ let FullIngredients = ({ ingredient, keys, amount, unit }) => {
 				Add to List
 				
 			</Label>
+			
 		</div>
 	);
 };
@@ -50,7 +51,7 @@ class RecipeInfoPopUp extends Component {
 
 	render() {
 		const { id, title, onSubmit, fullRecipe } = this.props;
-		console.log(fullRecipe);
+		
 		return (
 			<div>
 				<Button
