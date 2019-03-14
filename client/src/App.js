@@ -36,7 +36,7 @@ const home = props => {
       <div
         className="introBack"
         style={{
-          height: "720px",
+          height: "790px",
           backgroundImage: `url(${foodmoney})`,
           backgroundSize: "cover"
         }}

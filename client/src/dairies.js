@@ -21,8 +21,8 @@ export default class DairyItems extends Component {
 					paddingTop: "10%"
 				}}
 			>
-				<Container className="product">
-					<Row>
+				<Container className="">
+					<Row className="product">
 						{dairy.map((item, i) => {
 							return <ItemInfo item={item} key={i} />;
 						})}
