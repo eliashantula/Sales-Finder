@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { Button } from "reactstrap";
+
 import RecipeInfoPopUp from "./recipeinfosidebar";
-let RecipeSnapshot = ({ recipe, details, fullRecipe }) => {
+let RecipeSnapshot = ({ recipe, details }) => {
 	return (
 		<div className="individualRecipe">
 			<img
@@ -14,7 +14,7 @@ let RecipeSnapshot = ({ recipe, details, fullRecipe }) => {
 				id={recipe.id}
 				onSubmit={details}
 				title={recipe.title}
-				fullRecipe={fullRecipe}
+				
 			/>
 		</div>
 	);
@@ -23,7 +23,7 @@ let RecipeSnapshot = ({ recipe, details, fullRecipe }) => {
 export default class RecipePreview extends Component {
 	render() {
 		const { recipes, getFullRecipesInfo, fullRecipe } = this.props;
-
+        
 		return (
 			<div className="recipePreview">
 				{recipes.map((recipe, i) => {
@@ -32,7 +32,7 @@ export default class RecipePreview extends Component {
 							recipe={recipe}
 							key={i}
 							details={getFullRecipesInfo}
-							fullRecipe={fullRecipe}
+							
 						/>
 					);
 				})}

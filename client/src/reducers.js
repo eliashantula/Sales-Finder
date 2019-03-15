@@ -40,6 +40,7 @@ export default function groceryItem(state = initialState, Action) {
 				vegetables: Action.food
 			};
 		case "ADD_SHOPPING":
+		console.log(Action.data)
 			let amount = parseInt(Action.data.amount);
 			let quant = Action.data.quantity;
 			let product = Action.data.item;
@@ -178,6 +179,7 @@ export default function groceryItem(state = initialState, Action) {
 					}
 				};
 			}
+			
 
 		case "SEE_CART":
 			return {
@@ -210,6 +212,7 @@ export default function groceryItem(state = initialState, Action) {
 					ingredients: newIngredients
 				};
 			}
+			
 
 		case "CONTROL_CHECKS":
 			let checkProduct = Action.data.value;
@@ -249,7 +252,7 @@ export default function groceryItem(state = initialState, Action) {
 					}
 				};
 			}
-
+			
 		case "ADD_RECIPE_INGREDIENTS":
 			return {
 				...state,
@@ -284,13 +287,24 @@ export default function groceryItem(state = initialState, Action) {
 			};
 
 		case "GET_FULL_RECIPE_SUCCESS":
-		  let individualIngredients = Action.data.ingredients.map(ingredient=>{
-		  	return {amount: ingredient.amount,  unit: ingredient.unit,name: ingredient.name}
-		  })
+		console.log(Action.data)
+			let individualIngredients = Action.data.ingredients.map(
+				ingredient => {
+					return {
+						amount: ingredient.amount,
+						unit: ingredient.unit,
+						name: ingredient.name
+					};
+				}
+			);
 
 			return {
 				...state,
-				fullRecipes: {ingredients: individualIngredients, instructions: Action.data.instructions}
+				fullRecipes: 
+					{ingredients: individualIngredients,
+					instructions: Action.data.instructions}
+					
+				
 			};
 
 		case "GET_FULL_RECIPE_FAILURE":

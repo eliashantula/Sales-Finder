@@ -8,11 +8,11 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import groceryItem from "./reducers";
-
-let persistedState = localStorage.getItem("initialState")
+console.log(JSON.parse(localStorage.getItem("initialState")))
+const persistedState = localStorage.getItem("initialState")
 	? JSON.parse(localStorage.getItem("initialState"))
-	: undefined;
-let store = createStore(groceryItem, persistedState, applyMiddleware(thunk));
+	: undefined
+const store = createStore(groceryItem, persistedState, applyMiddleware(thunk));
 
 store.subscribe(() => {
 	localStorage.setItem("initialState", JSON.stringify(store.getState()));
@@ -24,4 +24,5 @@ ReactDOM.render(
 	</Provider>,
 	document.getElementById("root")
 );
+
 registerServiceWorker();

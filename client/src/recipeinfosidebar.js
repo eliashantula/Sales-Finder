@@ -7,14 +7,18 @@ import {
 	PopoverBody,
 	Form,
 	FormGroup,
-	Label,
-	Input
+	Label
 } from "reactstrap";
+
+
+import RecipeDetails from './recipedetails' 
 
 let FullIngredients = ({ ingredient, keys, amount, unit }) => {
 	return (
 		<div className="fullRecipeIngredients">
-			<li className="addMissingIngredient">{amount} {unit} {ingredient}</li>
+			<li className="addMissingIngredient">
+				{amount} {unit} {ingredient}
+			</li>
 
 			<Label
 				className="addMissingIngredientCheck"
@@ -22,9 +26,8 @@ let FullIngredients = ({ ingredient, keys, amount, unit }) => {
 				key={keys}
 			>
 				Add to List
-				
 			</Label>
-			
+
 		</div>
 	);
 };
@@ -37,79 +40,51 @@ class RecipeInfoPopUp extends Component {
 			popoverOpen: false
 		};
 	}
-
 	toggle() {
 		this.setState({
 			popoverOpen: !this.state.popoverOpen
 		});
 	}
 
-	testMe = e => {
-		e.preventDefault();
-		console.log(this.e.target);
-	};
 
 	render() {
-		const { id, title, onSubmit, fullRecipe } = this.props;
+		const { id, title, onSubmit  } = this.props;
 		
-		return (
-			<div>
-				<Button
-					id={"id" + id}
-					type="submit"
-					onClick={onSubmit}
-					size="sm"
-					color="info"
-					style={{ fontSize: "12px" }}
-					value={id}
-				>
-					View Recipe
-				</Button>
-				<UncontrolledPopover
-					style={{ border: "3px solid black", borderRadius: "10px" }}
-					trigger="legacy"
-					placement="bottom"
-					isOpen={this.state.popoverOpen}
-					target={"id" + id}
-					toggle={this.toggle}
-				>
-					<PopoverHeader>{title}</PopoverHeader>
-					<PopoverBody>
-						<div className="recipeDetails">
-							<div className="recipeIngredients">
-								<Form>
-									<FormGroup>
-										<ul
-											style={{ listStyle: "none" }}
-											className="recipeIngredientList"
-										>
-											{fullRecipe.ingredients.map(
-												(ingredient, i) => {
-													return (
-														<FullIngredients
-															ingredient={
-																ingredient.name
-															}
-															key={i}
-															amount={ingredient.amount}
-															unit = {ingredient.unit}
-														/>
-													);
-												}
-											)}
-										</ul>
-									</FormGroup>
-								</Form>
-							</div>
-							<div className="recipeInstructions">
-								{fullRecipe.instructions}
-							</div>
-						</div>
-					</PopoverBody>
-				</UncontrolledPopover>
-			</div>
-		);
-	}
+			return (
+				<div>
+			
+					<Button
+						id={"id" + id}
+						type="button"
+						onClick={onSubmit}
+						size="sm"
+						color="info"
+						style={{ fontSize: "12px" }}
+						value={id}
+					>
+						View Recipe
+					</Button>
+					<UncontrolledPopover
+						style={{
+							border: "3px solid black",
+							borderRadius: "10px"
+						}}
+						trigger="legacy"
+						placement="bottom"
+						isOpen={this.state.popoverOpen}
+						target={"id" + id}
+						toggle={this.toggle}
+					>
+						<PopoverHeader>{title}</PopoverHeader>
+						<PopoverBody>
+							<RecipeDetails/>
+						</PopoverBody>
+					</UncontrolledPopover>
+				</div>
+			);
+		
+	
+}
 }
 
 export default RecipeInfoPopUp;

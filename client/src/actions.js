@@ -44,7 +44,7 @@ export function getMeats() {
     data.default.forEach(item => {
 
         if (item.name === 'Meats') {
-            console.log("yes")
+           
             food = item.products
 
         }
@@ -252,7 +252,7 @@ export function findRecipes(data) {
 }
 
 export function clearRecipes(){
-    console.log("here")
+    
        return {
         type: CLEAR_RECIPES,
     }

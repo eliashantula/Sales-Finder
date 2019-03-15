@@ -4,26 +4,25 @@ import { connect } from "react-redux";
 import { getFullRecipes } from "./actions";
 
 class RecipeInfo extends Component {
-    /*componentWillReceiveProps() {
-        this.props.getRecipes();
-    }*/
+  
 
     render() {
-        const { recipes, getRecipes, fullRecipes } = this.props;
+        const { recipes, getRecipes,  } = this.props;
+       
         return (
             <RecipePreview
                 recipes={recipes}
                 getFullRecipesInfo={getRecipes}
-                fullRecipe={fullRecipes}
-            />
+                            />
         );
     }
 }
 
 const mapStateToProps = state => {
+    console.log(state)
     return {
         recipes: state.recipes,
-        fullRecipes: state.fullRecipes
+        
     };
 };
 

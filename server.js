@@ -159,6 +159,7 @@ app.get("/api/recipe/:ingred", (req, res, next) => {
 });
 
 app.get("/api/fullrecipe/:id", (req, res, next) => {
+    console.log("here")
     let recipeId = req.params.id;
     fetch(`${recipeDetailUrl}${recipeId}/information`, {
         method: "GET",

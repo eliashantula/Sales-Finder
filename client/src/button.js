@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import serialize from "form-serialize";
 import { addShopping } from "./actions";
 import { createChecks } from "./actions";
-import shoppingList from "./shoppinglist.png";
 import plus from './plus1.png'
 class ShopButton extends Component {
 	constructor(props) {
@@ -86,7 +85,8 @@ const mapDispatchToProps = dispatch => {
 	return {
 		checkSubmits: e => {
 			e.preventDefault();
-			const form = e.target;
+			const form = e.currentTarget;
+			console.log(form)
 			const data = serialize(form, { hash: true });
 
 			dispatch(addShopping(data));
