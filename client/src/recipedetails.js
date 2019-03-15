@@ -10,8 +10,9 @@ import {
 	Input
 } from "reactstrap";
 import { connect } from "react-redux";
+import {addShopping} from './actions'
 
-let RecipeInfo = ({ name, amount,unit, idx }) => {
+let RecipeInfo = ({ name, amount,unit, idx, testing }) => {
 	return (
 		<div className="fullRecipeIngredients">
 			<li className="addMissingIngredient" key={idx}>
@@ -19,7 +20,7 @@ let RecipeInfo = ({ name, amount,unit, idx }) => {
 			</li>
 
 			
-			<Button className="addMissingIngredientCheck" type="submit" style={{ fontSize: "8px", padding: "0px" }}>
+			<Button className="addMissingIngredientCheck" value={name} name={unit} type="click" id={amount} onClick={testing} style={{ fontSize: "8px", padding: "0px" }}>
 				Add to List
 				</Button>
 		
@@ -33,8 +34,8 @@ class RecipeDetails extends Component {
 	}
 
 	render() {
-		const { recipeDetail } = this.props;
-		console.log(recipeDetail);
+		const { recipeDetail,addAddtional } = this.props;
+		
 		return (
 			<div className="recipeDetails">
 				<div className="recipeIngredients">
@@ -52,6 +53,7 @@ class RecipeDetails extends Component {
 												name={ingredient.name}
 												unit={ingredient.unit}
 												amount={ingredient.amount}
+												testing = {addAddtional}
 											/>
 										);
 									}
@@ -75,7 +77,28 @@ const mapStateToProps = state => {
 	};
 };
 
+const mapDispatchToProps = dispatch => {
+
+return {
+addAddtional: (e)=>{
+	e.preventDefault()
+	console.log(e.currentTarget.value, e.currentTarget.id, e.currentTarget.name)
+	let data = {
+		amount: "1",
+		quantity: `${e.currentTarget.id} ${e.currentTarget.name}`,
+		item: e.currentTarget.value,
+		price: "0",
+		company: ""
+
+	}
+  dispatch(addShopping(data))
+}
+
+}
+
+}
+
 export default connect(
 	mapStateToProps,
-	null
+	mapDispatchToProps
 )(RecipeDetails);
