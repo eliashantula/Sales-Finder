@@ -13,24 +13,7 @@ import {
 
 import RecipeDetails from './recipedetails' 
 
-let FullIngredients = ({ ingredient, keys, amount, unit }) => {
-	return (
-		<div className="fullRecipeIngredients">
-			<li className="addMissingIngredient">
-				{amount} {unit} {ingredient}
-			</li>
 
-			<Label
-				className="addMissingIngredientCheck"
-				style={{ fontSize: "8px", paddingTop: "0px" }}
-				key={keys}
-			>
-				Add to List
-			</Label>
-
-		</div>
-	);
-};
 
 class RecipeInfoPopUp extends Component {
 	constructor(props) {
@@ -65,10 +48,6 @@ class RecipeInfoPopUp extends Component {
 						View Recipe
 					</Button>
 					<UncontrolledPopover
-						style={{
-							border: "3px solid black",
-							borderRadius: "10px"
-						}}
 						trigger="legacy"
 						placement="bottom"
 						isOpen={this.state.popoverOpen}

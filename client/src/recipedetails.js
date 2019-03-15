@@ -6,24 +6,23 @@ import {
 	PopoverBody,
 	Form,
 	FormGroup,
-	Label
+	Label,
+	Input
 } from "reactstrap";
 import { connect } from "react-redux";
 
 let RecipeInfo = ({ name, amount,unit, idx }) => {
 	return (
 		<div className="fullRecipeIngredients">
-			<li className="addMissingIngredient">
+			<li className="addMissingIngredient" key={idx}>
 				{amount} {unit} {name}
 			</li>
 
-			<Label
-				className="addMissingIngredientCheck"
-				style={{ fontSize: "8px", paddingTop: "0px" }}
-				key={idx}
-			>
+			
+			<Button className="addMissingIngredientCheck" type="submit" style={{ fontSize: "8px", padding: "0px" }}>
 				Add to List
-			</Label>
+				</Button>
+		
 		</div>
 	);
 };
@@ -71,7 +70,8 @@ class RecipeDetails extends Component {
 
 const mapStateToProps = state => {
 	return {
-		recipeDetail: state.fullRecipes
+		recipeDetail: state.fullRecipes,
+		list: state.list
 	};
 };
 
