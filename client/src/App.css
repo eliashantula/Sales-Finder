@@ -177,6 +177,11 @@ html {
 }
 .popover {
   border: 2px solid black
+
+}
+
+.loginForm {
+ margin: 0 auto;
 }
 @media only screen and (max-width: 767px) {
   .itemInfo {
@@ -274,7 +279,9 @@ html {
 .recipeInfo {
   flex: 0 0 30%;
 }
-
+.loginForm {
+    max-width: 55%;
+  }
 @media only screen and (min-width: 768px) {
   .itemInfo {
     flex: 0 0 22%;
@@ -286,6 +293,9 @@ html {
   .quantity {
     padding: 2%;
     max-width: 34%;
+  }
+  .loginForm {
+    max-width: 20%;
   }
   .navigs {
     flex: 0 0 12%;

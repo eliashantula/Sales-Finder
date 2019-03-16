@@ -20,35 +20,36 @@ class Login extends Component {
         const { login } = this.props
         console.log(login)
         return (
-            <Form onSubmit={login}>
-				<FormGroup>
+        	<div>
+            <Form onSubmit={login} className="loginForm">
+				<FormGroup style={{marginBottom: "0px"}}>
 					<Label for="emailAddress" sm={2}>
 						Email
 					</Label>
-					<Col sm={10}>
+					
 						<Input type="email" name="email" id="emailAddress" />
-					</Col>
+				
 				</FormGroup>
-				<FormGroup row>
+				<FormGroup style={{marginBottom: "0px"}}>
 					<Label for="pass" sm={2}>
 						Password
 					</Label>
-					<Col sm={10}>
+					
 						<Input type="password" name="password" id="pass" />
-					</Col>
+				
 				</FormGroup>
-				<FormGroup row>
-					<Label for="passwordVerification" sm={2}>
+				<FormGroup>
+					<Label for="passwordVerification" sm={8}>
 						Re-enter Password
 					</Label>
-					<Col sm={10}>
+					
 						<Input
 							type="password"
 							name="passwordVerification"
 							id="passwordVerification"
 							
 						/>
-					</Col>
+				
 				</FormGroup>
 				<Button
 					type="submit"
@@ -58,6 +59,7 @@ class Login extends Component {
 					Submit{" "}
 				</Button>
 			</Form>
+			</div>
         );
     }
 }

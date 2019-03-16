@@ -19,8 +19,9 @@ const home = props => {
   return (
     <div>
       <Jumbotron className="jumbo" style={{ marginBottom: "0px" }}>
-        <h1 className="display-3">Hello, Sales!</h1>
-        <Login/>
+      <Login/>
+        <h3 className="display-4">Hello, Sales!</h3>
+        
         <div>
           <img src={beta} alt="beta" />
         </div>
