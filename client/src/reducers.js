@@ -15,7 +15,7 @@ const initialState = {
 	fullRecipes: {},
 	isFetching: false,
 	error: null,
-	login: []
+	login: {}
 };
 
 export default function groceryItem(state = initialState, Action) {
@@ -334,10 +334,14 @@ export default function groceryItem(state = initialState, Action) {
 				checks: newChecks
 			};
 		case "LOGIN_INFO":
-		console.log("here")
+		console.log(Action.data)
 		return {
 			...state,
-			login: [...state.login, Action.data]
+			login:{
+			...state.login,
+			[Action.data.email] :{user: Action.data.email}
+
+}
 		}
 
 		default:

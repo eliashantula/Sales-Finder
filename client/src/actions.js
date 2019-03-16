@@ -273,7 +273,7 @@ export function clearAllChecks(){
 }
 
 
-export function testLogin(){
+export function testLogin(data){
     return {
         type: LOGIN_INFO,
         data

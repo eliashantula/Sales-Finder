@@ -44,7 +44,7 @@ class Login extends Component {
 					<Col sm={10}>
 						<Input
 							type="password"
-							name="password"
+							name="passwordVerification"
 							id="passwordVerification"
 							
 						/>
