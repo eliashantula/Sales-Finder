@@ -14,7 +14,8 @@ const initialState = {
 	recipeCheck: [],
 	fullRecipes: {},
 	isFetching: false,
-	error: null
+	error: null,
+	login: []
 };
 
 export default function groceryItem(state = initialState, Action) {
@@ -332,6 +333,12 @@ export default function groceryItem(state = initialState, Action) {
 				...state,
 				checks: newChecks
 			};
+		case "LOGIN_INFO":
+		console.log("here")
+		return {
+			...state,
+			login: [...state.login, Action.data]
+		}
 
 		default:
 			return state;

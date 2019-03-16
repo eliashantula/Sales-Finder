@@ -83,7 +83,7 @@ const mapDispatchToProps = dispatch => {
         },
 
         clearRecipes: () => {
-            console.log("testing");
+           
             dispatch(clearRecipes());
         }
     };

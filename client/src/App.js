@@ -13,12 +13,14 @@ import { Jumbotron, Button } from "reactstrap";
 import { getCookies } from "./actions";
 import foodmoney from "./foodmoney.jpg";
 import beta from "./beta-stamp.png";
+import Login from './login'
 
 const home = props => {
   return (
     <div>
       <Jumbotron className="jumbo" style={{ marginBottom: "0px" }}>
         <h1 className="display-3">Hello, Sales!</h1>
+        <Login/>
         <div>
           <img src={beta} alt="beta" />
         </div>

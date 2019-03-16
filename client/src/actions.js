@@ -19,6 +19,7 @@ const GET_FULL_RECIPE_FAILURE = 'GET_FULL_RECIPE_FAILURE'
 const CLEAR_RECIPES = 'CLEAR_RECIPES'
 const GET_COOKIES = 'GET_COOKIES'
 const CLEAR_CHECKS = 'CLEAR_CHECKS'
+const LOGIN_INFO = 'LOGIN_INFO'
 const data = require('./sales')
 
 let food;
@@ -268,5 +269,13 @@ export function getCookies(){
 export function clearAllChecks(){
     return {
         type: CLEAR_CHECKS
+    }
+}
+
+
+export function testLogin(){
+    return {
+        type: LOGIN_INFO,
+        data
     }
 }

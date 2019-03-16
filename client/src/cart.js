@@ -17,10 +17,11 @@ import RecipeInfo from "./recipeinfocontainer";
 import ClearCheckButton from "./clearcheckbutton";
 const ItemAmount = ({ amount }) => {
 	let item;
-	if (amount === 1){
-		item = "item"
+	if (amount === 1) {
+		item = "item";
+	} else {
+		item = "items";
 	}
-	else {item = "items"}
 	return (
 		<p
 			className="h7"
@@ -130,20 +131,15 @@ class Cart extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			modal: false,
-		
+			modal: false
 		};
 		this.toggle = this.toggle.bind(this);
-		
-		
 	}
 	toggle() {
 		this.setState({
 			modal: !this.state.modal
 		});
 	}
-
-	
 
 	testing() {}
 
@@ -212,7 +208,10 @@ class Cart extends Component {
 					<ModalFooter>
 						<div className="modals">
 							<div className="totals">Total: ${total}</div>
+							  
+							  <Button style={{ fontSize: "8px", marginRight: "2px" }} onClick={() => window.print()}>Print</Button>
 
+        
 							<RecipeButton chosenItems={checkedstatus} />
 							<ClearCheckButton chosenItems={checkedstatus} />
 						</div>
