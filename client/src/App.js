@@ -19,7 +19,7 @@ const home = props => {
   return (
     <div>
       <Jumbotron className="jumbo" style={{ marginBottom: "0px" }}>
-      <Login/>
+   
         <h3 className="display-4">Hello, Sales!</h3>
         
         <div>
@@ -68,7 +68,7 @@ class App extends Component {
 
           <Switch>
             <Route exact path="/" component={home} />
-
+            <Route exact path ="/login" component = {Login} />
             <Route exact path="/meats" component={MeatContainer} />
             <Route exact path="/vegetables" component={VegetableContainer} />
             <Route exact path="/dairy" component={DairyContainer} />
