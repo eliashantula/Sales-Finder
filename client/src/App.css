@@ -180,8 +180,16 @@ html {
 
 }
 
+
+
 .loginForm {
  margin: 0 auto;
+ text-align: center;
+}
+
+.col-sm-8, .col-form-label {
+  padding-right: 0px;
+  padding-left: 0px;
 }
 @media only screen and (max-width: 767px) {
   .itemInfo {

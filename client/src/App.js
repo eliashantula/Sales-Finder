@@ -14,6 +14,7 @@ import { getCookies } from "./actions";
 import foodmoney from "./foodmoney.jpg";
 import beta from "./beta-stamp.png";
 import Login from "./login";
+import SignIn from './signin'
 
 class home extends Component {
   constructor(props) {
@@ -22,7 +23,7 @@ class home extends Component {
   }
 
   loginClick = e => {
-    this.setState({ login: true });
+    this.setState(prevState=>({ login: !prevState.login }));
   };
 
   registerClick = e => {
@@ -44,7 +45,7 @@ class home extends Component {
 
           <div>
             {this.state.register === true ? <Login /> :
-            <img src={beta} alt="beta" />}
+            this.state.login === true ? <SignIn/> : <img src={beta} alt="beta" />}
           </div>
           <p className="lead">
             Find recipes and items on sale to create a shopping list which
@@ -68,6 +69,7 @@ class home extends Component {
             </Button>
             <Button
               color="white"
+              onClick={this.loginClick}
               style={{
                 fontSize: "12px",
                 backgroundColor: "black",
