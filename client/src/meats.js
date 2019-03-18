@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Container, Row } from "reactstrap";
+import { Container, Row, Button} from "reactstrap";
 import meat from "./meat.jpg";
 import ItemInfo from "./itemInfo";
 
 export default class MeatItems extends Component {
   render() {
-    const { items } = this.props;
+    const { items, onClick, name } = this.props;
 
     return (
       <div
@@ -17,6 +17,9 @@ export default class MeatItems extends Component {
         }}
       >
         <Container className="product">
+        <Button style={{backGroundColor: "black", color: "black", fontSize: "8px" }} id={name} onClick  ={onClick}>
+        Sort by price
+        </Button>
           <Row>
             {items.map((item, i) => {
               return <ItemInfo item={item} key={i} />;

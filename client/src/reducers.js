@@ -346,13 +346,21 @@ export default function groceryItem(state = initialState, Action) {
 }
 		}
 		case "GET_FRUITS": 
-		console.log(Action.food)
+	
 		return {
 			...state, 
 			fruits: Action.food
 		}
 
-
+	    case "SORT_PRICES":
+	    let toSort = Action.data.name
+		
+	    let sortedValues = state[toSort].slice().sort((a,b)=> { return a.price - b.price})
+	    console.log(toSort)
+	    return {
+	    	...state,
+	    	[toSort]: sortedValues
+	    }
 		default:
 			return state;
 	}

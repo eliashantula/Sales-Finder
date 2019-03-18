@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getMeats } from "./actions";
+import { getMeats, sortPrices } from "./actions";
 import MeatItems from "./meats";
 
 class MeatContainer extends Component {
@@ -9,8 +9,8 @@ class MeatContainer extends Component {
   }
 
   render() {
-    const { getMeats, meats, onSubmit } = this.props;
-    return <MeatItems items={meats} onSubmit={onSubmit} />;
+    const { getMeats, meats, onSubmit, sortPrice } = this.props;
+    return <MeatItems items={meats} onSubmit={onSubmit} onClick={sortPrice} name={"meats"} />;
   }
 }
 
@@ -20,16 +20,21 @@ const mapStateToProps = state => {
   };
 };
 
-
 const mapDispatchToProps = dispatch => {
-  console.log(getMeats)
   return {
     getMeats: () => {
       dispatch(getMeats());
+    },
+      sortPrice: (e) =>{
+
+      e.preventDefault()
+      let name = e.currentTarget.id
+      let data= {name: name}
+    
+      dispatch(sortPrices(data))
     }
   };
 };
-
 
 export default connect(
   mapStateToProps,

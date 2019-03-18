@@ -21,12 +21,20 @@ const CLEAR_RECIPES = "CLEAR_RECIPES";
 const GET_COOKIES = "GET_COOKIES";
 const CLEAR_CHECKS = "CLEAR_CHECKS";
 const LOGIN_INFO = "LOGIN_INFO";
+const SORT_PRICES = "SORT_PRICES";
 const data = require("./sales");
 
 let food;
 
+export function sortPrices(data) {
+ 
+    return {
+        type: SORT_PRICES,
+        data
+    };
+}
+
 export function getFruits() {
-    console.log("here");
     data.default.forEach(item => {
         if (item.name === "Fruits") {
             food = item.products;
