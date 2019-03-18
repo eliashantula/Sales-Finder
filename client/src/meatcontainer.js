@@ -20,8 +20,9 @@ const mapStateToProps = state => {
   };
 };
 
-//allowing container to access action calls
+
 const mapDispatchToProps = dispatch => {
+  console.log(getMeats)
   return {
     getMeats: () => {
       dispatch(getMeats());
@@ -29,7 +30,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-//connecting to the store
+
 export default connect(
   mapStateToProps,
   mapDispatchToProps

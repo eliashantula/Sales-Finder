@@ -5,6 +5,7 @@ const initialState = {
 	meats: [],
 	dairy: [],
 	drinks: [],
+	fruits: [],
 	recipes: [],
 	list: {},
 	total: 0,
@@ -19,6 +20,7 @@ const initialState = {
 };
 
 export default function groceryItem(state = initialState, Action) {
+	console.log(Action.type)
 	switch (Action.type) {
 		case "GET_MEATS":
 			return {
@@ -334,7 +336,7 @@ export default function groceryItem(state = initialState, Action) {
 				checks: newChecks
 			};
 		case "LOGIN_INFO":
-		console.log(Action.data)
+	
 		return {
 			...state,
 			login:{
@@ -343,6 +345,13 @@ export default function groceryItem(state = initialState, Action) {
 
 }
 		}
+		case "GET_FRUITS": 
+		console.log(Action.food)
+		return {
+			...state, 
+			fruits: Action.food
+		}
+
 
 		default:
 			return state;

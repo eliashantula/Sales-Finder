@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 
 import FoodNav from "./nav";
-
+import FruitItems from "./fruitcontainer"
 import MeatContainer from "./meatcontainer";
 import VegetableContainer from "./vegetablecontainer";
 import DairyContainer from "./dairycontainer";
@@ -15,6 +15,7 @@ import foodmoney from "./foodmoney.jpg";
 import beta from "./beta-stamp.png";
 import Login from "./login";
 import SignIn from './signin'
+
 
 class home extends Component {
   constructor(props) {
@@ -116,6 +117,7 @@ class App extends Component {
             <Route exact path="/vegetables" component={VegetableContainer} />
             <Route exact path="/dairy" component={DairyContainer} />
             <Route exact path="/drinks-snacks" component={DrinkContainer} />
+            <Route exact path="/fruits" component={FruitItems} /> 
           </Switch>
         </div>
       </Router>

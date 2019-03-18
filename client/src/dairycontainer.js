@@ -26,6 +26,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getDairy: () => {
+            console.log("here")
             dispatch(getDairy());
         }
     };

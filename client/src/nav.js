@@ -3,7 +3,7 @@ import { Nav } from "reactstrap";
 import { NavLink } from "react-router-dom";
 import CartContainer from "./cartcontainer";
 
-const sections = ["Vegetables", "Dairy", "Meats", "Drinks-Snacks"];
+const sections = ["Vegetables", "Dairy", "Meats", "Drinks-Snacks", "Fruits"];
 
 const Navs = ({ section, info }) => {
   return (

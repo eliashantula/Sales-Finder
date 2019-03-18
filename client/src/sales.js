@@ -2,12 +2,14 @@ const data = [
   {
     name: "Vegetables",
     products: [
-      {type: "Broccoli", price: 3.50, unit: "pound"},
-      {type: "Tomatoes", price: 1.99, unit: "pound"},
-      {type: "Cauliflower", price: 2.75, unit: "pound"},
-      {type: "Corn", price: .25, unit: "each"},
-      {type: "Cabbage", price: 2.75, unit: "each"},
-         {type: "Russet Potatoes 5lb", price: 2.75}
+      {type: "Broccoli", price: 3.50, quantity: "pound"},
+      {type: "Tomatoes", price: 1.99, quantity: "pound"},
+      {type: "Cauliflower", price: 2.75, qyuantity: "pound"},
+      {type: "Corn", price: .25, quantity: "each"},
+      {type: "Cabbage", price: 2.75, quantity: "each"},
+         {type: "Russet Potatoes", quantity: "5lb", price: 2.75},
+         {type: "Carrots", quantity: "1lb", price: 1.25 },
+         {type: "Yellow Onions", quantity: "3lb", price: 1.75}
       
     ]
   },
@@ -19,6 +21,7 @@ const data = [
       {type: "Watermelon", price: 5.99, unit: "each"},
       {type: "Gala Apples", price: 1.99, unit: "pound"},
       {type: "Raspberries", price: 2.99, unit: "pint"},
+      {type: "Blueberries", price: 3.99, unit: "Pint"}
       
     ]
   },
