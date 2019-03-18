@@ -6,6 +6,7 @@ mongoose.Promise = bluebird
 let models = {} 
 
 models.Cart = (require('./cart'))
+models.User = (require('./user'))
 
 
 module.exports = models

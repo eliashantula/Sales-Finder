@@ -8,6 +8,7 @@ const recipeDetailUrl =
     "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/";
 const express = require("express");
 const app = express();
+const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 mongoose.Promise = require("bluebird");
@@ -36,17 +37,21 @@ const User = mongoose.model('User', userSchema)
 const Recipe = mongoose.model('Recipe', savedRecipeSchema)
 const Ingredient = mongoose.model('Ingredient', savedIngredientSchema)
 */
-app.use(express.static(path.join(__dirname, "client", "build")));
 
+
+
+app.use(express.static(path.join(__dirname, "client", "build")));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(
+
+/*app.use(
     session({
         secret: "11df23",
         resave: false,
         saveUninitialized: true,
         cookie: { maxAge: 6000 }
     })
-);
+);*/
 
 app.use(urlencoded({ extended: true }));
 
@@ -122,7 +127,7 @@ app.get("/api/recipe/:ingred", (req, res, next) => {
     let string = req.params.ingred;
     let user = { shopperID: req.sessionID };
 
-    if (req.session.visited) {
+    /*if (req.session.visited) {
         Cart.findOneAndUpdate(req.sessionID, { items: string }).then(cart => {
             console.log(cart);
         });
@@ -132,7 +137,7 @@ app.get("/api/recipe/:ingred", (req, res, next) => {
         Cart.create({ items: string, ShopperID: req.sessionID }).then(cart => {
             console.log(cart);
         });
-    }
+    }*/
 
     fetch(`${baseUrl}${string}`, {
         method: "GET",
