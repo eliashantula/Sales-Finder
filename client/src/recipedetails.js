@@ -38,7 +38,9 @@ class RecipeDetails extends Component {
 		
 		return (
 			<div className="recipeDetails">
+			
 				<div className="recipeIngredients">
+				
 					<Form>
 						<FormGroup>
 							<ul

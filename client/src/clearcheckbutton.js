@@ -8,7 +8,7 @@ const ClearChecks = ({ clearChecks }) => {
 		<Button
 			type="submit"
 			color="primary"
-			style={{ fontSize: "10px" }}
+			style={{ fontSize: "10px", padding: "2px" }}
 			onClick={clearChecks}
 		>
 			Clear Selected

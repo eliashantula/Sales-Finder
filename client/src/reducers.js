@@ -1,5 +1,5 @@
 import * as Action from "./actions";
-
+import {combineReducers} from 'redux'
 const initialState = {
 	vegetables: [],
 	meats: [],

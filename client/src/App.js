@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 
 import FoodNav from "./nav";
-import FruitItems from "./fruitcontainer"
+import FruitItems from "./fruitcontainer";
 import MeatContainer from "./meatcontainer";
 import VegetableContainer from "./vegetablecontainer";
 import DairyContainer from "./dairycontainer";
@@ -14,8 +14,7 @@ import { getCookies } from "./actions";
 import foodmoney from "./foodmoney.jpg";
 import beta from "./beta-stamp.png";
 import Login from "./login";
-import SignIn from './signin'
-
+import SignIn from "./signin";
 
 class home extends Component {
   constructor(props) {
@@ -24,13 +23,17 @@ class home extends Component {
   }
 
   loginClick = e => {
-    this.setState(prevState=>({ login: !prevState.login }));
+    this.setState(prevState => ({
+      register: !prevState.register,
+      login: !prevState.login
+    }));
   };
 
   registerClick = e => {
-    this.setState(prevState=>({
+    this.setState(prevState => ({
+      login: !prevState.login,
       register: !prevState.register
-    }))
+    }));
   };
 
   render() {
@@ -45,8 +48,13 @@ class home extends Component {
           </h3>
 
           <div>
-            {this.state.register === true ? <Login /> :
-            this.state.login === true ? <SignIn/> : <img src={beta} alt="beta" />}
+            {this.state.register === true ? (
+              <Login />
+            ) : this.state.login === true ? (
+              <SignIn />
+            ) : (
+              <img src={beta} alt="beta" />
+            )}
           </div>
           <p className="lead">
             Find recipes and items on sale to create a shopping list which
@@ -66,7 +74,7 @@ class home extends Component {
               color="white"
               style={{ fontSize: "12px", backgroundColor: "white" }}
             >
-              Sign Up
+              Sign Up <i>(Coming Soon)</i>
             </Button>
             <Button
               color="white"
@@ -77,7 +85,7 @@ class home extends Component {
                 color: "white"
               }}
             >
-              Login
+              Login <i>(Coming Soon)</i>
             </Button>
           </p>
         </Jumbotron>
@@ -117,7 +125,7 @@ class App extends Component {
             <Route exact path="/vegetables" component={VegetableContainer} />
             <Route exact path="/dairy" component={DairyContainer} />
             <Route exact path="/drinks-snacks" component={DrinkContainer} />
-            <Route exact path="/fruits" component={FruitItems} /> 
+            <Route exact path="/fruits" component={FruitItems} />
           </Switch>
         </div>
       </Router>

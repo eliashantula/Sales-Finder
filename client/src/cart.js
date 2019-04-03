@@ -209,7 +209,7 @@ class Cart extends Component {
 						<div className="modals">
 							<div className="totals">Total: ${total}</div>
 							  
-							  <Button style={{ fontSize: "8px", marginRight: "2px" }} onClick={() => window.print()}>Print</Button>
+							  <Button style={{ fontSize: "8px", marginRight: "2px", padding: "2px" }} onClick={() => window.print()}>Print</Button>
 
         
 							<RecipeButton chosenItems={checkedstatus} />

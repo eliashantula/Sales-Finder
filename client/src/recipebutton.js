@@ -17,7 +17,7 @@ let RecipeButton = ({ chosenItems, onSubmits, recipeLookup }) => {
       type="submit"
       color="danger"
       value={value}
-      style={{ fontSize: "10px" }}
+      style={{ fontSize: "10px", padding: "2px" }}
       onClick={onSubmits}
     >
       Recipe Search
