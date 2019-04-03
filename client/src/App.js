@@ -24,14 +24,14 @@ class home extends Component {
 
   loginClick = e => {
     this.setState(prevState => ({
-      register: !prevState.register,
+      register: false,
       login: !prevState.login
     }));
   };
 
   registerClick = e => {
     this.setState(prevState => ({
-      login: !prevState.login,
+      login: false,
       register: !prevState.register
     }));
   };
